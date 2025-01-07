@@ -228,4 +228,23 @@ class HomeController extends Controller
 
         return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings', 'entries', 'appraisals', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'ongoingAppraisals'));
     }
+
+    //landing page controller 
+    public function landing_page () {
+        return view ('landing_page.landing_page');
+    }
+
+    //service-details for the landing pagge
+    public function  appraisals () {
+        return view ('landing_page.service-details-appraisals');
+    }
+    public function  training_travel () {
+        return view ('landing_page.service-details-training-travel');
+    }
+    public function  leave_schedule () {
+        return view ('landing_page.service-details-leave-schedule');
+    }
+    public function  applications () {
+        return view ('landing_page.service-details-applications');
+    }
 }
