@@ -33,7 +33,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="{{ url('/landing') }}" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Quotient</h1>
@@ -41,16 +41,16 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero" class="active">Home</a></li>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#portfolio">Portfolio</a></li>
-          <li><a href="index.html#team">Team</a></li>
+          <li><a href="{{ url('/landing') }}" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Team</a></li>
          
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+      <a class="btn-getstarted" href="#">Get Started</a>
 
     </div>
   </header>
@@ -66,7 +66,7 @@
             <h1>Better digital Human resource management with Quotient.</h1>
             <p>Quotient  is a comprehensive software solution designed to streamline and automate HR processes within an organization.</p>
             <div class="d-flex">
-              <a href="index.html#about" class="btn-get-started">Get Started</a>
+              <a href="#" class="btn-get-started">Get Started</a>
               <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
@@ -83,7 +83,7 @@
 
         <div class="row gy-3">
 
-          <div class="col-lg-6"  data-aos-delay="50">
+          <div class="col-lg-6"  data-aos-delay="100">
             <img src="{{ asset ('assets/landing_page/assets/img/about-img.svg') }}" alt="" class="img-fluid">
           </div>
 
@@ -138,7 +138,7 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
               <h4><a href="{{ url('/service-details-appraisals') }}" class="stretched-link">Appraisals</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p>Being able monitor your employee's productivity and contribution to the efficiency in production catches our eye as a void that should be filled by technology.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -146,7 +146,7 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
               <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Trainings/Travel</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <p>Enforcing employee trainings and travels so as to improve co-ordination and team work thus to improve productivity.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -154,7 +154,7 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
               <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Leave Schedule</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <p>Quotient makes leave scheduling easy and efficient to facilitate employee rest time and employee duty time to avoid date collisions that would affect employee availability.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -162,7 +162,7 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-broadcast icon"></i></div>
               <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Applications</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p>Quotient also facilitates careers by providing a hub for applications sent by applicants and providng them for review.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -197,23 +197,23 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-1.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>App 1</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-1.jpg') }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/portfolio-details.html') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
             </div><!-- End Portfolio Item -->
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-1.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Product 1</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-1.jpg') }}" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -221,11 +221,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-1.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Branding 1</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-1.jpg') }}" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -233,11 +233,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-1.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Books 1</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-1.jpg') }}" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -245,11 +245,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-2.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>App 2</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-2.jpg') }}" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -257,11 +257,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-2.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Product 2</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-2.jpg') }}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -269,11 +269,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-2.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Branding 2</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-2.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -281,11 +281,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-2.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Books 2</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-2.jpg" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-2.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -293,11 +293,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-3.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>App 3</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/app-3.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-3.jpg') }}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -305,11 +305,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-3.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Product 3</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/product-3.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-3.jpg') }}" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -317,11 +317,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-3.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Branding 3</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-3.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -329,11 +329,11 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
+                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-3.jpg') }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Books 3</h4>
                   <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="assets/img/portfolio/books-3.jpg" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-3.jpg') }}" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
               </div>
@@ -678,7 +678,7 @@
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
             <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <p>Subscribe to our newsletter and receive the latest news about Quotient software and other related technologies!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
               <div class="loading">Loading</div>
@@ -694,13 +694,13 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">Ninestars</span>
+            <span class="sitename">Quotient</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>A108 martyr's way</p>
+            <p>Ntinda, Kampala</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+256 754 885 005</span></p>
+            <p><strong>Email:</strong> <span>info@quotient.com</span></p>
           </div>
         </div>
 
@@ -717,16 +717,16 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Leave management</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Appraisals</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Leave Roaster</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#">Events</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
           <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <p>Follow us on all our social media pages to keep up with us.</p>
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -739,13 +739,9 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Ninestars</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Quotient</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://impactoutsourcing.co.ug/">ImpactOutsourcinig</a>
       </div>
     </div>
 
@@ -758,16 +754,16 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('assets/landing_page/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/php-email-form/validate.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/aos/aos.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/glightbox/js/glightbox.min.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/isotope-layout/isotope.pkgd.min.js') }} "></script>
-  <script src="{{ asset('assets/landing_page/assets/vendor/swiper/swiper-bundle.min.js') }} "></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/aos/aos.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset(' assets/landing_page/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
-  <script src="{{ asset('assets/landing_page/assets/js/main.js') }} "></script>
+  <script src="{{ asset(' assets/landing_page/assets/js/main.js') }}"></script>
 
 </body>
 

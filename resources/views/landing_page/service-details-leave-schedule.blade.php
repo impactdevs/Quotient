@@ -5,7 +5,7 @@
 @section('content')
 <div class="page-title" >
     <div class="container d-lg-flex justify-content-between align-items-center">
-      <h1 class="mb-2 mb-lg-0">Service Details</h1>
+      <h1 class="mb-2 mb-lg-0">Leave Schedule Service Details</h1>
       <nav class="breadcrumbs">
         <ol>
           <li><a href="index.html">Home</a></li>
@@ -23,13 +23,15 @@
         <img src="{{ asset('assets/landing_page/assets/img/services.jpg') }}" alt="" class="img-fluid services-img">
         </div>
 
-        <h4>Enim qui eos rerum in delectus</h4>
-        <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
+        <h4>Leave Schedule</h4>
+        <p>
+          Quotient makes leave scheduling easy and efficient to facilitate employee rest time and employee duty time to avoid date collisions that would affect employee availability.
+        </p>
       </div>
 
       <div class="col-lg-6" >
         
-        <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas</h3>
+        <h3>Industry Standard Strategies.</h3>
         <p>
           Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
         </p>
