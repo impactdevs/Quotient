@@ -14,39 +14,38 @@
       </nav>
     </div>
   </div>
-
-<div class="container">
+  <div class="container">
     <div class="row gy-4 mt-4">
 
       <div class="col-lg-6">
         <div class="services-list mb-5">
-        <img src="{{ asset('assets/landing_page/assets/img/services.jpg') }}" alt="" class="img-fluid services-img">
+          <img src="{{ asset('assets/landing_page/assets/img/services.jpg') }}" alt="" class="img-fluid services-img">
         </div>
 
-        <h4>Training and Travel.</h4>
-        <p>Enforcing employee trainings and travels so as to improve co-ordination and team work thus to improve productivity.</p>
+        <h4>Training and Travel</h4>
+        <p>At Quotient, we believe that investing in employee training and travel opportunities plays a critical role in enhancing teamwork, boosting collaboration, and improving overall productivity. By offering training sessions and travel experiences, we create an environment where employees can develop both professionally and personally, further contributing to the success of the organization.</p>
       </div>
 
-      <div class="col-lg-6" >
-        
-        <h3>Industry Standard Strategies.</h3>
+      <div class="col-lg-6">
+        <h3>Our Industry-Leading Approach</h3>
         <p>
-          Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
+          Quotient’s strategy revolves around fostering employee growth through continuous learning and collaboration. Training and travel are key components of this approach, ensuring that employees are not only skilled but also well-connected within teams, improving both their individual and collective contributions to the company.
         </p>
         <ul>
-          <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Promoting team collaboration through targeted training programs.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Enhancing employee engagement with rewarding travel opportunities.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Expanding skillsets to adapt to changing industry demands.</span></li>
         </ul>
         <p>
-          Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
+          With these strategies, Quotient ensures that employees are well-equipped to tackle challenges, while fostering a culture of unity and shared purpose. Training and travel also contribute to increased morale, stronger communication, and improved problem-solving capabilities across teams.
         </p>
         <p>
-          Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
+          By leveraging innovative approaches to training and travel, Quotient positions itself at the forefront of employee development. We enable businesses to cultivate a more adaptable and cohesive workforce, ultimately leading to enhanced business outcomes and long-term success.
         </p>
       </div>
 
     </div>
+
 
     </div>
 

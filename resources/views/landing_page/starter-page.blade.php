@@ -86,9 +86,9 @@
             <span class="sitename">Quotient</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 martyr's way</p>
-            <p>Ntinda, Kampala</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+256 754 885 005</span></p>
+            <p>Plot 40 Martyrs Way Ntinda,</p>
+            <p>Ntinda Rise, Kampala</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+256752364557 / +256778766500</span></p>
             <p><strong>Email:</strong> <span>info@quotient.com</span></p>
           </div>
         </div>

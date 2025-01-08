@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Quotient</title>
-  <meta name="description" content="Ninestars Bootstrap Template for landing pages.">
+  <meta name="description" content="Quotient HR system.">
   <meta name="keywords" content="quotient, hr system, leave management">
 
   <!-- Favicons -->
@@ -65,12 +65,11 @@
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" >
             <h1>Better digital Human resource management with Quotient.</h1>
             <p>Quotient  is a comprehensive software solution designed to streamline and automate HR processes within an organization.</p>
-            <div class="d-flex">
-              <a href="#" class="btn-get-started">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-            </div>
           </div>
-         
+        
+          <div class="col-lg-6 order-1 order-lg-2 hero-img"  data-aos-delay="100">
+            <img src="{{ asset('assets/landing_page/assets/img/hero-img.svg') }}" class="img-fluid animated" alt="">
+          </div>
         </div>
       </div>
 
@@ -138,7 +137,8 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
               <h4><a href="{{ url('/service-details-appraisals') }}" class="stretched-link">Appraisals</a></h4>
-              <p>Being able monitor your employee's productivity and contribution to the efficiency in production catches our eye as a void that should be filled by technology.</p>
+              <p>Appraisals offer a structured approach to evaluating employee performance, helping organizations recognize and reward productivity. </p>
+
             </div>
           </div><!-- End Service Item -->
 
@@ -146,7 +146,8 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
               <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Trainings/Travel</a></h4>
-              <p>Enforcing employee trainings and travels so as to improve co-ordination and team work thus to improve productivity.</p>
+              <p>Investing in employee training and travel opportunities enhances team collaboration, fosters skill development, and strengthens company culture. </p>
+
             </div>
           </div><!-- End Service Item -->
 
@@ -154,15 +155,15 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
               <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Leave Schedule</a></h4>
-              <p>Quotient makes leave scheduling easy and efficient to facilitate employee rest time and employee duty time to avoid date collisions that would affect employee availability.</p>
-            </div>
+              <p>Effective leave scheduling is essential for maintaining a balanced workflow and ensuring adequate staff availability. </p>
+              </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-broadcast icon"></i></div>
               <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Applications</a></h4>
-              <p>Quotient also facilitates careers by providing a hub for applications sent by applicants and providng them for review.</p>
+              <p>Quotient streamlines the recruitment process by centralizing job applications in one easy-to-manage hub. </p>
             </div>
           </div><!-- End Service Item -->
 
@@ -213,14 +214,6 @@
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
-            </div>
-
-          </div><!-- End Faq Column-->
-
-          <div class="col-lg-6"  data-aos-delay="200">
-
-            <div class="faq-container">
-
               <div class="faq-item">
                 <h3>How does Quotient handle leave requests and approvals?</h3>
                 <div class="faq-content">
@@ -229,14 +222,18 @@
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
-              <div class="faq-item">
-                <h3>Can Quotient prevent scheduling conflicts?</h3>
-                <div class="faq-content">
-                  <p>Yes, Quotient automatically flags overlapping leave requests, ensuring adequate staffing levels and preventing scheduling conflicts.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
+           
 
+
+            </div>
+
+          </div><!-- End Faq Column-->
+
+          <div class="col-lg-6"  data-aos-delay="200">
+
+            <div class="faq-container">
+
+             
               <div class="faq-item">
                 <h3>Does Quotient reduce hiring biases?</h3>
                 <div class="faq-content">
@@ -395,7 +392,9 @@
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p> Plot 40 Martyrs Way Ntinda,</p>
+                  <p> Ntinda Rise, Kampala</p>
+                  
                 </div>
               </div><!-- End Info Item -->
 
@@ -403,7 +402,7 @@
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <p>+256752364557 / +256778766500</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -411,7 +410,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>info@example.com</p>
+                  <p>info@quotient.com</p>
                 </div>
               </div><!-- End Info Item -->
         
@@ -484,9 +483,9 @@
             <span class="sitename">Quotient</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 martyr's way</p>
-            <p>Ntinda, Kampala</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+256 754 885 005</span></p>
+            <p>Plot 40 Martyrs Way Ntinda,</p>
+            <p>Ntinda Rise, Kampala</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+256752364557 / +256778766500</span></p>
             <p><strong>Email:</strong> <span>info@quotient.com</span></p>
           </div>
         </div>
@@ -550,7 +549,28 @@
   <script src="{{ asset(' assets/landing_page/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
-  <script src="{{ asset('assets\landing_page\assets\js\main.js') }}"></script>
+  <script src="{{ asset('resources\js\main.js') }}"></script>
+
+  <script>
+
+  /**
+   * Frequently Asked Questions Toggle
+   */
+  window.addEventListener('load', function(e) {
+    // Add the click event listener for each faq item or toggle button
+    document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+      // Logging to check that the items are selected
+      console.log('click');
+
+      // Uncomment the below line to activate the click functionality
+      faqItem.addEventListener('click', function() {
+        // Toggle the 'faq-active' class on the parent element of the clicked item
+        faqItem.parentNode.classList.toggle('faq-active');
+      });
+    });
+  });
+</script>
+
 
 </body>
 

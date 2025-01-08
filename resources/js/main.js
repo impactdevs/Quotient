@@ -1,3 +1,10 @@
+/**
+* Template Name: Ninestars
+* Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
 
 (function() {
   "use strict";
@@ -5,6 +12,8 @@
   /**
    * Apply .scrolled class to the body as the page is scrolled down
    */
+  
+
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
@@ -13,7 +22,7 @@
   }
 
   document.addEventListener('scroll', toggleScrolled);
-  
+  window.addEventListener('load', toggleScrolled);
 
   /**
    * Mobile nav toggle
@@ -54,7 +63,12 @@
   /**
    * Preloader
    */
-
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
 
   /**
    * Scroll top button
@@ -74,7 +88,7 @@
     });
   });
 
-
+  window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
@@ -88,7 +102,7 @@
       mirror: false
     });
   }
-
+  window.addEventListener('load', aosInit);
 
   /**
    * Initiate glightbox
@@ -130,18 +144,6 @@
 
   });
 
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      console.log('toggle clicked');
-      faqItem.closest('.faq-item').classList.toggle('faq-active');
-
-    });
-  });
-
-  
 
   /**
    * Init swiper sliders
@@ -160,6 +162,7 @@
     });
   }
 
+  window.addEventListener("load", initSwiper);
 
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
@@ -198,7 +201,7 @@
       }
     })
   }
-
+  window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
