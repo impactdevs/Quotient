@@ -5,7 +5,7 @@
 @section('content')
 <div class="page-title" >
     <div class="container d-lg-flex justify-content-between align-items-center">
-      <h1 class="mb-2 mb-lg-0">Service Details</h1>
+      <h1 class="mb-2 mb-lg-0">Application Service Details</h1>
       <nav class="breadcrumbs">
         <ol>
           <li><a href="index.html">Home</a></li>
@@ -23,26 +23,45 @@
         <img src="{{ asset('assets/landing_page/assets/img/services.jpg') }}" alt="" class="img-fluid services-img">
         </div>
 
-        <h4>Enim qui eos rerum in delectus</h4>
-        <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
+        <h4>Application filtration</h4>
+        <p>A well-designed application filtration system, such as Quotient, streamlines the hiring process by efficiently filtering and shortlisting job applications. It minimizes manual effort, reduces biases, and ensures that only the most qualified candidates move forward in the recruitment pipeline.</p>
       </div>
 
       <div class="col-lg-6" >
         
-        <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas</h3>
+        <h3>Application filtration strategy</h3>
         <p>
           Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
+          <br>
+          Implementing a structured application filtration strategy provides numerous advantages for organizations:
         </p>
+        
         <ul>
-          <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-          <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Faster Recruitment Process
+          Automating the screening of resumes significantly reduces the time required to review applications, enabling faster hiring decisions.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Improved Quality of Hires
+          Quotient evaluates applications against predefined criteria, ensuring only candidates who meet job requirements are shortlisted, leading to better hiring outcomes..</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Reduced Human Bias
+          The system applies consistent filters, promoting fairness and diversity by minimizing unconscious biases during the selection process.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Data-Driven Insights
+          The system provides analytics and reports to help HR teams monitor hiring trends, optimize job postings, and refine recruitment strategies.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span> Scalability
+          Quotient handles high volumes of applications without compromising accuracy, making it ideal for organizations hiring at scale.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Cost Efficiency
+          Automation reduces administrative overhead, allowing HR teams to focus on strategic hiring initiatives rather than manual tasks.</span></li>
         </ul>
+        <h3>Key Features of Quotient’s Filtration System</h3>
+        <ul>
+          <li><i class="bi bi-check-circle"></i> <span>Customizable Filters: Tailor screening criteria to suit specific job roles.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Keyword Matching: Identify resumes that align with job descriptions.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Integration with Applicant Tracking Systems (ATS): Ensure seamless data management.</span></li>
+          <li><i class="bi bi-check-circle"></i> <span>Automated Ranking: Rank applicants based on qualifications and relevance.
+          </span></li>
+          <li><i class="bi bi-check-circle"></i> <span> Notifications and Alerts: Keep candidates and recruiters updated throughout the process.</span></li>
+        </ul>
+        <br>
         <p>
-          Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
-        </p>
-        <p>
-          Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
+        Quotient simplifies recruitment by leveraging automation, promoting efficiency, and enhancing decision-making. Its powerful filtration tools help organizations attract top talent while saving time and resources.
         </p>
       </div>
 
