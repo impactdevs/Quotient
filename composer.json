@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9",
         "hotwired-laravel/turbo-laravel": "2.0.0",
         "kreait/firebase-php": "^7.15",
         "laravel-notification-channels/fcm": "^4.3",
@@ -15,7 +16,8 @@
         "laravel/tinker": "^2.9",
         "owen-it/laravel-auditing": "^13.6",
         "spatie/laravel-permission": "^6.9",
-        "spatie/laravel-query-builder": "^6.2"
+        "spatie/laravel-query-builder": "^6.2",
+        "symfony/mailer": "^7.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

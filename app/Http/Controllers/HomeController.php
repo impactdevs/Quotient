@@ -12,6 +12,8 @@ use App\Models\Training;
 use Carbon\Carbon;
 use App\Models\Event;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -246,5 +248,39 @@ class HomeController extends Controller
     }
     public function  applications () {
         return view ('landing_page.service-details-applications');
+    }
+
+    //handle contact emails 
+    public function send(Request $request)
+    {
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'subject' => $request->input('subject'),
+            'message' => $request->input('message'),
+        ];
+
+        try {
+            Mail::raw( $data['message'] . ''.'Message from : ' . $data['email'], function ($mail) use ($request) {
+                // Use the email entered by the user
+                $mail->to('dev.david1300@gmail.com')
+                    ->subject($request->input('subject'));
+ 
+        });
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        } catch (\Exception $e) {
+            // Flash error message if email fails
+            return redirect()->back()->with('error', 'Failed to send your message. Please try again.');
+        }
+       
+        
     }
 }

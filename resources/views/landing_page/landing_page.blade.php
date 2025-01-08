@@ -172,181 +172,6 @@
 
     </section><!-- /Services Section -->
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" >
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters"  data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container"  data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-1.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-1.jpg') }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="{{ asset('assets/landing_page/portfolio-details.html') }}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-1.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-1.jpg') }}" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-1.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-1.jpg') }}" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-1.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 1</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-1.jpg') }}" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-2.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-2.jpg') }}" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-2.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-2.jpg') }}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-2.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-2.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-2.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 2</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-2.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/app-3.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>App 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/app-3.jpg') }}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/product-3.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Product 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/product-3.jpg') }}" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/branding-3.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Branding 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/branding-3.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <div class="portfolio-content h-100">
-                <img src="{{ asset('assets/landing_page/assets/img/portfolio/books-3.jpg') }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Books 3</h4>
-                  <p>Lorem ipsum, dolor sit amet consectetur</p>
-                  <a href="{{ asset('assets/landing_page/assets/img/portfolio/books-3.jpg') }}" title="Branding 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
     <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
 
@@ -443,6 +268,9 @@
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
+
+             
+
 
             </div>
 
@@ -586,46 +414,57 @@
                   <p>info@example.com</p>
                 </div>
               </div><!-- End Info Item -->
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.6406698328615!2d36.80722697372735!3d-1.266546735602265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30d12d8cc59d32b%3A0xf01d95ed03276b5!2sImpact%20Outsourcing-Limited!5e1!3m2!1sen!2sug!4v1736335339480!5m2!1sen!2sug"  frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form"  data-aos-delay="200">
-              <div class="row gy-4">
+    <form action="{{ route('contact.send') }}" method="POST" class="php-email-form" data-aos-delay="200">
+        @csrf 
+        <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
+            <div class="col-md-6">
+                <label for="name-field" class="pb-2">Your Name</label>
+                <input type="text" name="name" id="name-field" class="form-control" required="">
+            </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
+            <div class="col-md-6">
+                <label for="email-field" class="pb-2">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email-field" required="">
+            </div>
 
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
+            <div class="col-md-12">
+                <label for="subject-field" class="pb-2">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject-field" required="">
+            </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
+            <div class="col-md-12">
+                <label for="message-field" class="pb-2">Message</label>
+                <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+            </div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+            <div class="col-md-12 text-center">
+                @if(session('success'))
+                    <div class="sent-message">{{ session('success') }}</div>
+                @endif
+                <button type="submit">Send Message</button>
+            </div>
 
-                  <button type="submit">Send Message</button>
-                </div>
 
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
+            <!-- Alert Messages -->
+            @if(session('success'))
+                <div class="sent-message">{{ session('success') }}</div>
+            @endif
+            @if(session('error'))
+                <div class="error-message">{{ session('error') }}</div>
+            @endif
+
+        </div>
+    </form>
+</div>
+
+
 
         </div>
 
@@ -637,22 +476,6 @@
 
   <footer id="footer" class="footer position-relative">
 
-    <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about Quotient software and other related technologies!</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form">
-              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your subscription request has been sent. Thank you!</div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="container footer-top">
       <div class="row gy-4">
@@ -727,7 +550,7 @@
   <script src="{{ asset(' assets/landing_page/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
-  <script src="{{ asset(' assets/landing_page/assets/js/main.js') }}"></script>
+  <script src="{{ asset('assets\landing_page\assets\js\main.js') }}"></script>
 
 </body>
 
