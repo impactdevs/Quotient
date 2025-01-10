@@ -33,7 +33,7 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="{{ url('/landing') }}" class="logo d-flex align-items-center me-auto">
+      <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Quotient</h1>
@@ -67,7 +67,7 @@
           </div>
         
           <div class="col-lg-6 order-1 order-lg-2 hero-img"  data-aos-delay="100">
-            <img src="{{ asset('assets/landing_page/assets/img/hero-img.svg') }}" class="img-fluid animated" alt="">
+            <img src="{{ asset('assets/landing_page/assets/img/1.jpg') }}" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
         <div class="row gy-3">
 
           <div class="col-lg-6"  data-aos-delay="100">
-            <img src="{{ asset ('assets/landing_page/assets/img/about-img.svg') }}" alt="" class="img-fluid">
+            <img src="{{ asset ('assets/landing_page/assets/img/5.jpg') }}" alt="" class="img-fluid">
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center"  data-aos-delay="200">
