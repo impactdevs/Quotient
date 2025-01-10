@@ -30,7 +30,7 @@ use App\Models\StaffRecruitment;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('dashboard');
+    return redirect()->route('landing');
 });
 
 //landing page routes

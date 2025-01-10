@@ -42,10 +42,9 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ url('/landing') }}" class="active">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Team</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
          
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -163,7 +162,7 @@
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-archive icon"></i></div>
-              <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Leave Management</a></h4>
+              <h4><a href="#" class="stretched-link">Leave Management</a></h4>
               <p>Quotient streamlines the managing leave days through out the year by identifying those on leave and those still having pending leave days.</p>
             </div>
           </div><!-- End Service Item -->
@@ -173,7 +172,7 @@
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="100">
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-card-list icon"></i></div>
-    <h4><a href="{{ url('/service-details-appraisals') }}" class="stretched-link">Leave Roaster</a></h4>
+    <h4><a href="#" class="stretched-link">Leave Roaster</a></h4>
     <p>AThis outlines the number of employees who request for leave and those about to return from leave. </p>
 
   </div>
@@ -182,7 +181,7 @@
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="200">
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-card-checklist icon"></i></div>
-    <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Attendances</a></h4>
+    <h4><a href="#" class="stretched-link">Attendances</a></h4>
     <p>Provides a roaster of all those employees who are available for company events and trainings through out the year. </p>
 
   </div>
@@ -192,7 +191,7 @@
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-calendar2-event icon"></i></div>
-    <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Events</a></h4>
+    <h4><a href="#" class="stretched-link">Events</a></h4>
     <p>Provides a efficient way to create and manage company events led by the company throughout the year.</p>
     </div>
 </div><!-- End Service Item -->
@@ -200,7 +199,7 @@
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-person-workspace icon"></i></div>
-    <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Employees</a></h4>
+    <h4><a href="#" class="stretched-link">Employees</a></h4>
     <p>Collects information on the company employees available and the status of their leave days.</p>
   </div>
 </div><!-- End Service Item -->
@@ -209,7 +208,7 @@
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-person-vcard icon"></i></div>
-    <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Stuff Recruitment</a></h4>
+    <h4><a href="#" class="stretched-link">Stuff Recruitment</a></h4>
     <p>Provides an effective strategy for recruitment new talent to the company by identifying available vacancy and departments in need of improvement. </p>
     </div>
 </div><!-- End Service Item -->
@@ -349,72 +348,63 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="100">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/Gideon-Nkurungungi.webp') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/Gideon-Nkurungungi.webp') }}" class="img-fluid"
+              style="width: 300px; height: 300px; object-fit: cover; "
+               alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Gideon Nkurunungi</h4>
                   <span>Managing Director</span>
                 </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+              
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="200">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/eliab.jpg') }}" max-height="100px"  class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/eliab.jpg') }}" 
+              style="width: 300px; height: 300px; object-fit: cover; " class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Eliab</h4>
+                  <h4>Nuwagaba Eliab</h4>
                   <span>Product Manager</span>
                 </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+              
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="300">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/wilberforce.jpg') }}" class="img-fluid" alt="">
+            <img 
+                src="{{ asset('assets/landing_page/assets/img/team/wilberforce.jpg') }}" 
+                class="img-fluid" 
+                alt="" 
+                style="width: 300px; height: 300px; object-fit: cover; "
+            >
+
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Wilberforce</h4>
+                  <h4>Nsengiyumva Wilberforce</h4>
                   <span>Senior Software Developer</span>
                 </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+              
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="400">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/david.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/david.jpg') }}" class="img-fluid"
+              style="width: 300px; height: 300px; object-fit: cover; "
+               alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>David Ochwo</h4>
                   <span>Junior Software Developer</span>
                 </div>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+               
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -623,6 +613,19 @@
         faqItem.parentNode.classList.toggle('faq-active');
       });
     });
+
+    document.querySelectorAll('a.nav-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
   });
 </script>
 

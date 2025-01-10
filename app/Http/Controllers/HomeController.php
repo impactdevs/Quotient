@@ -270,7 +270,7 @@ class HomeController extends Controller
 
         try {
             Mail::raw( $data['message'] . ''.'Message from : ' . $data['email'], function ($mail) use ($request) {
-                // Use the email entered by the user
+                // to be sent to this email
                 $mail->to('dev.david1300@gmail.com')
                     ->subject($request->input('subject'));
  
