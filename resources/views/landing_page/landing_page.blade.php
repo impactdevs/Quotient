@@ -82,7 +82,8 @@
         <div class="row gy-3">
 
           <div class="col-lg-6"  data-aos-delay="100">
-            <img src="{{ asset ('assets/landing_page/assets/img/5.jpg') }}" alt="" class="img-fluid">
+            <img src="{{ asset ('assets/landing_page/assets/img/5.jpg') }}" alt="" class="img-fluid mb5">
+            <img src="{{ asset ('assets/landing_page/assets/img/4.jpg') }}" alt="" class="img-fluid mt-5">
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center"  data-aos-delay="200">
@@ -95,15 +96,15 @@
                 <li>
                   <i class="bi bi-diagram-3"></i>
                   <div>
-                    <h4>Leave Roaster</h4>
-                    <p> Overall, Quotient helps organizations manage their workforce more effectively and create a more organized, transparent work environment.</p>
+                    <h4>Perfection.</h4>
+                    <p> Quotient redefines precision in HR management. From automating leave tracking and employee management to ensuring attendance records are flawless, the system eliminates the risk of manual errors. Every process is seamlessly aligned with company policies, offering consistent results across the board. With real-time data analytics and accurate reporting, HR teams can make informed decisions confidently. </p>
                   </div>
                 </li>
                 <li>
                   <i class="bi bi-fullscreen-exit"></i>
                   <div>
-                    <h4>Training/travels</h4>
-                    <p> Training enhances employees' skills, knowledge, and overall job performance, leading to increased productivity, job satisfaction, and employee retention. It also fosters a culture of continuous learning and personal growth.</p>
+                    <h4>Productivity.</h4>
+                    <p>Boost your team's productivity with Quotient's smart automation. By taking care of repetitive HR tasks, the system frees up valuable time, allowing HR professionals to focus on strategic initiatives. Employees can access self-service tools to request leaves, check attendance, or view their records effortlessly, reducing unnecessary back-and-forth communication. With streamlined operations and more time for what truly matters, Quotient empowers both HR teams and employees to achieve more.</p>
                   </div>
                 </li>
               </ul>
@@ -145,7 +146,7 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-airplane icon"></i></div>
               <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Trainings/Travel</a></h4>
-              <p>Invests in employee training and travel opportunities by allowing employees to register for the available training events. </p>
+              <p>Quotient empowers your employees to seamlessly apply for trainings or travel, whether they are working onsite or from home. Department heads and HR officers can efficiently review and approve these requests, ensuring a smooth and streamlined process for professional development and business travel management. </p>
 
             </div>
             
@@ -173,7 +174,7 @@
   <div class="service-item position-relative">
     <div class="icon"><i class="bi bi-card-list icon"></i></div>
     <h4><a href="#" class="stretched-link">Leave Roaster</a></h4>
-    <p>AThis outlines the number of employees who request for leave and those about to return from leave. </p>
+    <p>Quotient simplifies leave management with its intuitive leave roster feature. Employees can easily view their leave schedules alongside their teammates, fostering better planning and collaboration within teams. HR officers and managers gain a clear overview of leave patterns, ensuring adequate staffing at all times. With a well-organized and accessible leave roster, Quotient helps streamline workflows and avoid disruptions caused by overlapping leaves or unplanned absences.</p>
 
   </div>
 </div><!-- End Service Item -->
