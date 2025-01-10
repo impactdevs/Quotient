@@ -144,11 +144,12 @@
 
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <div class="icon"><i class="bi bi-airplane icon"></i></div>
               <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Trainings/Travel</a></h4>
-              <p>Investing in employee training and travel opportunities enhances team collaboration, fosters skill development, and strengthens company culture. </p>
+              <p>Invests in employee training and travel opportunities by allowing employees to register for the available training events. </p>
 
             </div>
+            
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
@@ -161,15 +162,69 @@
 
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Applications</a></h4>
-              <p>Quotient streamlines the recruitment process by centralizing job applications in one easy-to-manage hub. </p>
+              <div class="icon"><i class="bi bi-archive icon"></i></div>
+              <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Leave Management</a></h4>
+              <p>Quotient streamlines the managing leave days through out the year by identifying those on leave and those still having pending leave days.</p>
             </div>
           </div><!-- End Service Item -->
 
-        </div>
+          <div class="row gy-4">
 
-      </div>
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="100">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-card-list icon"></i></div>
+    <h4><a href="{{ url('/service-details-appraisals') }}" class="stretched-link">Leave Roaster</a></h4>
+    <p>AThis outlines the number of employees who request for leave and those about to return from leave. </p>
+
+  </div>
+</div><!-- End Service Item -->
+
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="200">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-card-checklist icon"></i></div>
+    <h4><a href="{{ url('/service-details-training') }}" class="stretched-link">Attendances</a></h4>
+    <p>Provides a roaster of all those employees who are available for company events and trainings through out the year. </p>
+
+  </div>
+  
+</div><!-- End Service Item -->
+
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-calendar2-event icon"></i></div>
+    <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Events</a></h4>
+    <p>Provides a efficient way to create and manage company events led by the company throughout the year.</p>
+    </div>
+</div><!-- End Service Item -->
+
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-person-workspace icon"></i></div>
+    <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Employees</a></h4>
+    <p>Collects information on the company employees available and the status of their leave days.</p>
+  </div>
+</div><!-- End Service Item -->
+
+
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-person-vcard icon"></i></div>
+    <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Stuff Recruitment</a></h4>
+    <p>Provides an effective strategy for recruitment new talent to the company by identifying available vacancy and departments in need of improvement. </p>
+    </div>
+</div><!-- End Service Item -->
+
+<div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="400">
+  <div class="service-item position-relative">
+    <div class="icon"><i class="bi bi-file-earmark-arrow-up icon"></i></div>
+    <h4><a href="{{ url('/service-details-applications') }}" class="stretched-link">Applications</a></h4>
+    <p>Quotient streamlines the recruitment process by centralizing job applications in one easy-to-manage hub. </p>
+  </div>
+</div><!-- End Service Item -->
+
+
+  </div>
+</div>
 
     </section><!-- /Services Section -->
 
@@ -294,11 +349,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="100">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/team-1.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/Gideon-Nkurungungi.webp') }}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
+                  <h4>Gideon Nkurunungi</h4>
+                  <span>Managing Director</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -312,10 +367,10 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="200">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/team-2.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/eliab.jpg') }}" max-height="100px"  class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
+                  <h4>Eliab</h4>
                   <span>Product Manager</span>
                 </div>
                 <div class="social">
@@ -330,11 +385,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="300">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/team-3.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/wilberforce.jpg') }}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
+                  <h4>Wilberforce</h4>
+                  <span>Senior Software Developer</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -348,11 +403,11 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="400">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/team-4.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ asset('assets/landing_page/assets/img/team/david.jpg') }}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
+                  <h4>David Ochwo</h4>
+                  <span>Junior Software Developer</span>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -378,7 +433,7 @@
       <!-- Section Title -->
       <div class="container section-title" >
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Contact us to know more about our products and offerings.</p>
       </div><!-- End Section Title -->
 
       <div class="container"  data-aos-delay="100">
