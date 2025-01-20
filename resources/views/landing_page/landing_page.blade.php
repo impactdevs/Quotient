@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Quotient</title>
   <meta name="description" content="Quotient HR system.">
-  <meta name="keywords" content="quotient, hr system, leave management">
+  <meta name="keywords" content="quotient, hr system, leave management, impact outsourcing">
 
   <!-- Favicons -->
   <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
@@ -45,11 +45,11 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#team">Team</a></li>
-         
+
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#">Get Started</a>
+      <a class="btn-getstarted" href="/login">Get Started</a>
 
     </div>
   </header>
@@ -65,7 +65,7 @@
             <h1>Better digital Human resource management with Quotient.</h1>
             <p>Quotient  is a comprehensive software solution designed to streamline and automate HR processes within an organization.</p>
           </div>
-        
+
           <div class="col-lg-6 order-1 order-lg-2 hero-img"  data-aos-delay="100">
             <img src="{{ asset('assets/landing_page/assets/img/1.jpg') }}" class="img-fluid animated" alt="">
           </div>
@@ -149,7 +149,7 @@
               <p>Quotient empowers your employees to seamlessly apply for trainings or travel, whether they are working onsite or from home. Department heads and HR officers can efficiently review and approve these requests, ensuring a smooth and streamlined process for professional development and business travel management. </p>
 
             </div>
-            
+
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
@@ -186,7 +186,7 @@
     <p>Provides a roaster of all those employees who are available for company events and trainings through out the year. </p>
 
   </div>
-  
+
 </div><!-- End Service Item -->
 
 <div class="col-xl-3 col-md-6 d-flex"  data-aos-delay="300">
@@ -277,7 +277,7 @@
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
-           
+
 
 
             </div>
@@ -288,7 +288,7 @@
 
             <div class="faq-container">
 
-             
+
               <div class="faq-item">
                 <h3>Does Quotient reduce hiring biases?</h3>
                 <div class="faq-content">
@@ -321,7 +321,7 @@
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
-             
+
 
 
             </div>
@@ -357,31 +357,31 @@
                   <h4>Gideon Nkurunungi</h4>
                   <span>Managing Director</span>
                 </div>
-              
+
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="200">
             <div class="member">
-              <img src="{{ asset('assets/landing_page/assets/img/team/eliab.jpg') }}" 
+              <img src="{{ asset('assets/landing_page/assets/img/team/eliab.jpg') }}"
               style="width: 300px; height: 300px; object-fit: cover; " class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Nuwagaba Eliab</h4>
                   <span>Product Manager</span>
                 </div>
-              
+
               </div>
             </div>
           </div><!-- End Team Member -->
 
           <div class="col-xl-3 col-lg-4 col-md-6"  data-aos-delay="300">
             <div class="member">
-            <img 
-                src="{{ asset('assets/landing_page/assets/img/team/wilberforce.jpg') }}" 
-                class="img-fluid" 
-                alt="" 
+            <img
+                src="{{ asset('assets/landing_page/assets/img/team/wilberforce.jpg') }}"
+                class="img-fluid"
+                alt=""
                 style="width: 300px; height: 300px; object-fit: cover; "
             >
 
@@ -390,7 +390,7 @@
                   <h4>Nsengiyumva Wilberforce</h4>
                   <span>Senior Software Developer</span>
                 </div>
-              
+
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -405,7 +405,7 @@
                   <h4>David Ochwo</h4>
                   <span>Junior Software Developer</span>
                 </div>
-               
+
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -416,7 +416,7 @@
 
     </section><!-- /Team Section -->
 
-   
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -440,7 +440,7 @@
                   <h3>Address</h3>
                   <p> Plot 40 Martyrs Way Ntinda,</p>
                   <p> Ntinda Rise, Kampala</p>
-                  
+
                 </div>
               </div><!-- End Info Item -->
 
@@ -459,14 +459,14 @@
                   <p>info@quotient.com</p>
                 </div>
               </div><!-- End Info Item -->
-        
+
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.6406698328615!2d36.80722697372735!3d-1.266546735602265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30d12d8cc59d32b%3A0xf01d95ed03276b5!2sImpact%20Outsourcing-Limited!5e1!3m2!1sen!2sug!4v1736335339480!5m2!1sen!2sug"  frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
           <div class="col-lg-7">
     <form action="{{ route('contact.send') }}" method="POST" class="php-email-form" data-aos-delay="200">
-        @csrf 
+        @csrf
         <div class="row gy-4">
 
             <div class="col-md-6">

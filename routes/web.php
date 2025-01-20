@@ -34,12 +34,12 @@ Route::get('/', function () {
 });
 
 //landing page routes
-Route:: get ('/landing', [HomeController::class, 'landing_page'])->name('landing');
-Route:: get ('/service-details-appraisals', [HomeController::class, 'appraisals'])->name('appraisals');
-Route:: get ('/service-details-training', [HomeController::class, 'training_travel'])->name('training/travel');
-Route:: get ('/service-details-leave-schedule', [HomeController::class, 'leave_schedule'])->name('leave-schedule');
-Route:: get ('/service-details-applications', [HomeController::class, 'applications'])->name('applications');
-Route::post ('/send-email', [HomeController::class, 'send'])->name('contact.send');
+Route::get('/landing', [HomeController::class, 'landing_page'])->name('landing');
+Route::get('/service-details-appraisals', [HomeController::class, 'appraisals'])->name('appraisals');
+Route::get('/service-details-training', [HomeController::class, 'training_travel'])->name('training/travel');
+Route::get('/service-details-leave-schedule', [HomeController::class, 'leave_schedule'])->name('leave-schedule');
+Route::get('/service-details-applications', [HomeController::class, 'applications'])->name('applications');
+Route::post('/send-email', [HomeController::class, 'send'])->name('contact.send');
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/upload-employee', [UploadEmployees::class, 'process_csv_for_arrears']);
