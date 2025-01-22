@@ -226,12 +226,10 @@ class HomeController extends Controller
             }
         }
 
-
-
         return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings', 'entries', 'appraisals', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'ongoingAppraisals'));
     }
 
-    //landing page controller 
+    //landing page controller
     public function landing_page () {
         return view ('landing_page.landing_page');
     }
@@ -250,10 +248,10 @@ class HomeController extends Controller
         return view ('landing_page.service-details-applications');
     }
 
-    //handle contact emails 
+    //handle contact emails
     public function send(Request $request)
     {
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -273,14 +271,14 @@ class HomeController extends Controller
                 // to be sent to this email
                 $mail->to('dev.david1300@gmail.com')
                     ->subject($request->input('subject'));
- 
+
         });
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
             // Flash error message if email fails
             return redirect()->back()->with('error', 'Failed to send your message. Please try again.');
         }
-       
-        
+
+
     }
 }
