@@ -102,7 +102,7 @@
             <li class="nav-item">
                 <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('docs')) bg-secondary @endif"
                     href="/docs">
-                    <i class="bi bi-bar-chart"></i>
+                    <i class="bi bi-file-earmark-text"></i>
                     User Manual
                 </a>
             </li>

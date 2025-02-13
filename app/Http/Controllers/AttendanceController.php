@@ -14,9 +14,15 @@ class AttendanceController extends Controller
     {
         $date = $request->input('filter_date', now()->format('Y-m-d'));
 
-        $attendances = Attendance::whereDate('attendance_date', $date)
-            ->with('employee') // Eager load employee
-            ->paginate(10);
+        if (!auth()->user()->hasRole('Staff')) {
+            $attendances = Attendance::whereDate('attendance_date', $date)
+                ->with('employee') // Eager load employee
+                ->paginate(10);
+        } else {
+            $attendances = Attendance::where('employee_id', auth()->user()->employee->employee_id)->whereDate('attendance_date', $date)
+                ->with('employee') // Eager load employee
+                ->paginate(10);
+        }
 
         return view('attendances.index', compact('attendances'));
     }
