@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        // Get the first user with the HR role
+        $hrUser = User::whereHas('roles', function ($query) {
+            $query->where('name', 'HR');
+        })->first();
+
+        // Extract the email if a user is found
+        $hrEmail = $hrUser ? $hrUser->email : null;
+
+        return view('auth.login', ['hrEmail' => $hrEmail]);
     }
 
     /**

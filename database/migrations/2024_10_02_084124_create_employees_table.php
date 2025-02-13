@@ -33,7 +33,7 @@ return new class extends Migration {
             $table->string('passport_photo')->nullable();
             $table->string('national_id_photo')->nullable();
             $table->string('date_of_birth')->nullable();
-            $table->unsignedBigInteger('user_id')->nullable()->references('id')->on('users');
+            $table->unsignedBigInteger('user_id')->references('id')->on('users');
             $table->integer('entitled_leave_days')->default(30);
             $table->timestamps();
         });

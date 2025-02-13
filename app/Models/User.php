@@ -49,7 +49,7 @@ class User extends Authenticatable
     //a user is related to an employee by email
     public function employee()
     {
-        return $this->hasOne(Employee::class, 'email', 'email');
+        return $this->hasOne(Employee::class);
     }
 
     //check if admin or executive sec

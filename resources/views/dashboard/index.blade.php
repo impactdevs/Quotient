@@ -10,10 +10,8 @@
                         <!-- Sales Card -->
                         <div class="col-xxl-3 col-md-6">
                             <div class="card info-card sales-card">
-
                                 <div class="card-body">
                                     <h5 class="card-title">Employees</h5>
-
                                     <div class="d-flex align-items-center">
                                         <div
                                             class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -36,6 +34,10 @@
                                     <h5 class="card-title">Attendees <span>| Today</span></h5>
 
                                     <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-person"></i>
+                                        </div>
                                         <div class="ps-3">
                                             <h6>{{ $attendances }}</h6>
                                         </div>
@@ -52,6 +54,29 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">Leave <span>| Currently</span></h5>
+
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>{{ $available_leave }}</h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div><!-- End Customers Card -->
+
+                        <!-- Customers Card -->
+                        <div class="col-xxl-3 col-xl-12">
+
+                            <div class="card info-card customers-card">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Birthdays <span>| Today</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -89,35 +114,6 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Applications <span>| Today</span></h5>
 
-                                    <table class="table table-borderless datatable">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First Name</th>
-                                                <th scope="col">Last Name</th>
-                                                <th scope="col">Job</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($entries as $entry)
-                                                @php
-                                                    // Assuming $response contains the JSON string
-                                                    $data = json_decode($entry->entry->responses, true); // true for associative array
-                                                @endphp
-                                                <tr>
-                                                    <td><a href="#"
-                                                            class="btn btn-outline-danger">{{ $entry->job->job_code }}</a>
-                                                        </th>
-                                                    <td>{{ $data[93] }}</td>
-                                                    <td>{{ $data[94] }}</td>
-                                                    <td><span
-                                                            class="badge bg-success">{{ $entry->job->job_title }}</span>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-
                                 </div>
 
                             </div>
@@ -130,28 +126,6 @@
                                 <div class="card-body pb-0">
                                     <h5 class="card-title">On Going Appraisals</h5>
 
-                                    <table class="table table-borderless">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Full Name</th>
-                                                <th scope="col">Position</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($appraisals as $appraisal)
-                                                @php
-                                                    // Assuming $response contains the JSON string
-                                                    $data = json_decode($appraisal->entry->responses, true); // true for associative array
-                                                @endphp
-                                                <tr>
-                                                    <td>{{ $appraisal->employee->first_name . ' ' . $appraisal->employee->first_name }}
-                                                    </td>
-                                                    <td>{{ $appraisal->employee->position->position_name }}</td>
-                                                </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
 
                                 </div>
 
@@ -323,29 +297,6 @@
 
                             </div>
                         </div><!-- End Revenue Card -->
-
-                        <!-- Customers Card -->
-                        <div class="col-xxl-4 col-xl-12">
-
-                            <div class="card info-card customers-card">
-
-                                <div class="card-body">
-                                    <h5 class="card-title">Ongoing Appraisals</h5>
-
-                                    <div class="d-flex align-items-center">
-                                        <div
-                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                            <i class="bi bi-people"></i>
-                                        </div>
-                                        <div class="ps-3">
-                                            <h6>{{ $ongoingAppraisals }}</h6>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div><!-- End Customers Card -->
                         @if (count($leaveApprovalData) > 0)
                             <!-- Leave Approval Progress -->
                             <div class="col-xxl-12 col-md-12">

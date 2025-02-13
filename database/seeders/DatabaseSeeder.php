@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -17,8 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(PermissionsDemoSeeder::class);
-
+        //seed positions
         $positions = [
             ['position_id' => Str::uuid(), 'position_name' => 'Manager'],
             ['position_id' => Str::uuid(), 'position_name' => 'Developer'],
@@ -28,18 +25,6 @@ class DatabaseSeeder extends Seeder
         ];
 
         DB::table('positions')->insert($positions);
-
-        $userIds = DB::table('users')->pluck('id')->toArray();
-
-        $departments = [
-            ['department_id' => Str::uuid(), 'department_name' => 'Human Resources', 'department_head' => $userIds[array_rand($userIds)]],
-            ['department_id' => Str::uuid(), 'department_name' => 'Engineering', 'department_head' => $userIds[array_rand($userIds)]],
-            ['department_id' => Str::uuid(), 'department_name' => 'Marketing', 'department_head' => $userIds[array_rand($userIds)]],
-            ['department_id' => Str::uuid(), 'department_name' => 'Sales', 'department_head' => $userIds[array_rand($userIds)]],
-            ['department_id' => Str::uuid(), 'department_name' => 'Finance', 'department_head' => $userIds[array_rand($userIds)]],
-        ];
-
-        DB::table('departments')->insert($departments);
 
         //leave types
         $leaveTypes = [
@@ -52,8 +37,12 @@ class DatabaseSeeder extends Seeder
 
         DB::table('leave_types')->insert($leaveTypes);
 
+        //seed user roles
+        $this->call(RoleSeeder::class);
 
-        $this->call(EmployeeSeeder::class);
+        $this->call(DepartmentSeeder::class);
+        //seed the users with their corresponding
+        $this->call(UserSeeder::class);
 
         // $this->call(TrainingSeeder::class);
 

@@ -36,9 +36,6 @@ class HomeController extends Controller
 
         $leaveTypes = LeaveType::all()->keyBy('leave_type_id');
 
-        //ongoing appraisals
-        $ongoingAppraisals = Appraisal::where('employee_id', optional(auth()->user()->employee)->employee_id)->count();
-
         //events and trainings
         $events = Event::where(function ($query) use ($today, $tomorrow) {
             $query->whereBetween('event_start_date', [$today, $tomorrow])
@@ -156,20 +153,6 @@ class HomeController extends Controller
         // Convert to JSON for JavaScript
         $chartEmployeeDataJson = json_encode($chartEmployeeData);
 
-        //applications
-        $entries = Application::with('entry', 'job')->whereDate('created_at', $today)
-            ->latest()
-            ->get();
-
-        $appraisals = Appraisal::with('entry')->whereDate('created_at', $today)
-            ->latest()
-            ->get();
-
-
-
-
-
-
         //get the current leave requests
         $leaves = Leave::with('employee', 'leaveCategory')
             ->where('end_date', '>=', Carbon::today())
@@ -226,7 +209,7 @@ class HomeController extends Controller
             }
         }
 
-        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings', 'entries', 'appraisals', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'ongoingAppraisals'));
+        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings','leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays'));
     }
 
     //landing page controller

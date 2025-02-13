@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UserFactory extends Factory
 {
@@ -31,6 +33,10 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
+    /**
+     * check if the employee does not exist and create one
+     */
+
 
     /**
      * Assign the "Staff" role to the created user.
@@ -38,17 +44,14 @@ class UserFactory extends Factory
     public function withStaffRole(): static
     {
         return $this->afterCreating(function (User $user) {
-            $user->assignRole('Staff'); // Assign the "Staff" role
+            //get a random role
+            $user->assignRole(Role::pluck('name')->random()); // Assign the "Staff" role
+
+            //ensure that employee record is created for this user
+            Employee::factory()->create([
+                'user_id' => $user->id, //associate employee with the created user
+            ]);
         });
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
 }

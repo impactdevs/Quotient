@@ -36,8 +36,9 @@
 
             <a href="{{ url('/') }}" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Quotient</h1>
+                <img src="{{ asset('assets/img/home-logo.png') }}" alt="">
+                {{-- <x-application-logo class="w-20 h-20 fill-current text-gray-500" /> --}}
+
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -583,7 +584,7 @@
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="d-flex align-items-center">
+                    <a href="/landing" class="d-flex align-items-center">
                         <span class="sitename">Quotient</span>
                     </a>
                     <div class="footer-contact pt-3">
