@@ -52,4 +52,4 @@
 
 
 ## Contact
-For support or inquiries, reach out to **Impact Outsourcing** at [email@example.com](mailto:nsengiyumvawilberforce@gmail.com).
+For support or inquiries, reach out to **Impact Outsourcing** at [nsengiyumvawilberforce@gmail.com](mailto:nsengiyumvawilberforce@gmail.com).
