@@ -28,7 +28,12 @@ class Leave extends Model
         'reason',
         'leave_request_status',
         'my_work_will_be_done_by',
-        'leave_roster_id'
+        'leave_roster_id',
+        'leave_address',
+        'phone_number',
+        'other_contact_details',
+        'handover_note_file',
+        'handover_note',
     ];
 
     protected $casts = [
@@ -49,7 +54,7 @@ class Leave extends Model
 
     public function employee()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(Employee::class, 'user_id', 'user_id');
     }
 
     public function leaveCategory()
@@ -81,6 +86,21 @@ class Leave extends Model
     public function leaveRoster()
     {
         return $this->belongsTo(LeaveRoster::class, 'leave_roster_id', 'leave_roster_id');
+    }
+
+    public function durationForLeave()
+    {
+        //exclude all weekends and public holidays
+        $publicHolidays = PublicHoliday::pluck('holiday_date')->toArray();
+
+        $publicHolidays = array_map(function ($date) {
+            return Carbon::parse($date)->toDateString();
+        }, $publicHolidays);
+
+        return Carbon::parse($this->start_date)
+            ->diffInDaysFiltered(function (Carbon $date) use ($publicHolidays) {
+                return !$date->isWeekend() && !in_array($date->toDateString(), $publicHolidays);
+            }, Carbon::parse($this->end_date));
     }
 
 

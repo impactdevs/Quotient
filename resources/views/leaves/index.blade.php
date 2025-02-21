@@ -24,17 +24,31 @@
                 <div class="col-12">
                     <div class="card recent-sales overflow-auto vh-100">
                         <div class="card-body">
-                            <h5 class="card-title">Leave Schedules</h5>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">
+                                    {{ auth()->user()->isAdminOrSecretary() ? 'UNCST Leave Requests' : 'My Leave Requests' }}
+                                </h5>
+                                {{-- check if role is HR and dont show the button --}}
+                                @if (!auth()->user()->hasRole('HR'))
+                                    <a class="btn btn-primary btn-sm ms-auto px-3 py-1"
+                                        href="{{ route('leaves.create') }}" style="font-size: 14px;">
+                                        <i class="bi bi-plus" style="font-size: 12px;"></i> Apply
+                                    </a>
+                                @endif
+                            </div>
+
+
 
                             <table class="table table-striped table-bordered" id="leavePlan" cellspacing="0"
                                 width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Full Name</th>
-                                        <th scope="col">Duration</th>
-                                        <th scope="col">Status</th>
-                                        <th class="col">Actions</th>
+                                        <th scope="col">FULL NAME</th>
+                                        <th scope="col">LEAVE TYPE</th>
+                                        <th scope="col">DURATION</th>
+                                        <th class="col">ACTIONS</th>
+                                        <th scope="col">STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -188,6 +202,9 @@
                 var balanceToSchedule = totalLeaveDaysEntitled - totalLeaveDaysScheduled;
                 var percentageUsed = Math.min((totalLeaveDaysScheduled / totalLeaveDaysEntitled) * 100, 100);
                 var canApproveLeave = @json(auth()->user()->can('approve-leave'));
+                //get all the roles in the system
+                var roles = @json($roles);
+
                 // Update the progress bar
                 $('#leaveProgressBar').css('width', percentageUsed + '%')
                     .attr('aria-valuenow', percentageUsed)
@@ -282,7 +299,7 @@
                         var department = $('#departmentSelect').val(); // Get selected department
 
                         $.ajax({
-                            url: '{{ route('leave-roster.calendarData') }}',
+                            url: '{{ route('leave.data') }}',
                             type: 'GET',
                             data: {
                                 approval_status: approvalStatus, // Pass the selected approval status filter
@@ -313,8 +330,9 @@
                                             ); // Add Bootstrap class to the search box
                                         },
                                         columnDefs: [{
-                                                targets: 2, // Assuming the duration is in the second column (index 1)
+                                                targets: 3, // Assuming the duration is in the second column (index 1)
                                                 render: function(data, type, row) {
+                                                    console.log(data);
                                                     // Use Bootstrap badge and apply styles for duration
                                                     return '<span class="badge bg-info text-dark">' +
                                                         data +
@@ -322,7 +340,7 @@
                                                 }
                                             },
                                             {
-                                                targets: 3,
+                                                targets: 5,
                                                 render: function(data, type, row) {
                                                     let status = '';
 
@@ -331,44 +349,45 @@
                                                         '<div class="status mt-2">';
 
                                                     // Check if there is a leave request status
-                                                    if (row[3] && row[3]
+                                                    if (row[5] && row[5]
                                                         .leave_request_status) {
                                                         var role =
                                                             @json(Auth::user()->roles->pluck('name')[0] ?? '');
 
                                                         // Check if role exists in the leave request status
-                                                        if (row[3]
+                                                        if (row[5]
                                                             .leave_request_status[
                                                                 role] ===
                                                             'approved') {
                                                             statusDiv +=
                                                                 '<span class="badge bg-success">You Approved this Leave Request.</span>';
-                                                        } else if (row[3]
+                                                        } else if (row[5]
                                                             .leave_request_status[
                                                                 role] ===
                                                             'rejected') {
                                                             statusDiv +=
                                                                 '<span class="badge bg-danger">You rejected this Request</span>';
-                                                            if (row[3]
+                                                            if (row[5]
                                                                 .rejection_reason
                                                             ) {
                                                                 statusDiv +=
                                                                     '<p class="mt-1"><strong>Rejection Reason:</strong> ' +
-                                                                    row[3]
+                                                                    row[5]
                                                                     .rejection_reason +
                                                                     '</p>';
                                                             }
                                                         } else {
+                                                            console.log(row[5])
                                                             // If the status is neither approved nor rejected
                                                             if (role ===
                                                                 'Staff' && row[
-                                                                    3]
+                                                                    5]
                                                                 .leave_request_status[
                                                                     'Executive Secretary'
                                                                 ]) {
                                                                 const
                                                                     executiveStatus =
-                                                                    row[3]
+                                                                    row[5]
                                                                     .leave_request_status[
                                                                         'Executive Secretary'
                                                                     ];
@@ -393,46 +412,63 @@
                                                             }
                                                         }
                                                     } else {
-                                                        statusDiv +=
-                                                            '<span class="badge bg-warning">No Application</span>';
+                                                        if (row[5].leave_id) {
+                                                            statusDiv +=
+                                                                '<span class="badge bg-success">Application review in progress</span>';
+                                                        } else {
+                                                            statusDiv +=
+                                                                '<span class="badge bg-warning">No Application</span>';
+                                                        }
                                                     }
 
                                                     statusDiv +=
-                                                        '<p>Who has approved</p>';
-
-                                                    // Add who approved section
-                                                    if (row[3] && row[3]
+                                                        '<p>Leave Approved By:</p>';
+                                                    if (row[5] && row[5]
                                                         .leave_request_status) {
-                                                        // Loop through the leave request status and display the approval/rejection status
-                                                        for (const person in
-                                                                row[3]
-                                                                .leave_request_status) {
-                                                            const status = row[
-                                                                    3]
+                                                        roles.forEach((
+                                                            role) => {
+                                                            const
+                                                                status =
+                                                                row[5]
                                                                 .leave_request_status[
-                                                                    person];
+                                                                    role
+                                                                ];
+
+                                                            // Determine the badge with improved Bootstrap styling
                                                             if (status ===
-                                                                'approved') {
-                                                                statusDiv +=
-                                                                    '-<span class="badge bg-success">Approved by ' +
-                                                                    person +
-                                                                    '</span>';
+                                                                'approved'
+                                                            ) {
+                                                                statusDiv
+                                                                    += `
+                <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <span class="fw-semibold text-success">${role}: Approved</span>
+                </div>`;
                                                             } else if (
                                                                 status ===
-                                                                'rejected') {
-                                                                statusDiv +=
-                                                                    '-<span class="badge bg-danger">Rejected by ' +
-                                                                    person +
-                                                                    '</span>';
-                                                            } else if (
-                                                                status === null
+                                                                'rejected'
                                                             ) {
-                                                                statusDiv +=
-                                                                    '-<span class="badge bg-warning">Pending by ' +
-                                                                    person +
-                                                                    '</span>';
+                                                                statusDiv
+                                                                    += `
+                <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                    <span class="fw-semibold text-danger">${role}: Rejected</span>
+                </div>`;
+                                                            } else if (
+                                                                status ===
+                                                                null ||
+                                                                status ===
+                                                                undefined
+                                                            ) {
+                                                                // Handle both `null` and missing roles as "Pending"
+                                                                statusDiv
+                                                                    += `
+                <div class="d-flex align-items-center mb-2">
+                    <i class="bi bi-hourglass-split text-warning me-2"></i>
+                    <span class="fw-semibold text-warning">${role}: Pending</span>
+                </div>`;
                                                             }
-                                                        }
+                                                        });
                                                     } else {
                                                         statusDiv +=
                                                             '<span class="badge bg-warning">No Approval Yet</span>';
@@ -457,23 +493,27 @@
                                         ],
                                         fixedHeader: true, // Sticky header for large tables
                                         responsive: true, // Ensures the table is mobile-friendly
+                                        ordering: false, // Disable ordering globally
+
 
                                     });
                                 }
-                                var rows = [];
+                                var rows1 = [];
                                 var groupedByStaff = {};
 
                                 // Group events by staff_id
-                                response.data.forEach(function(event) {
-                                    if (!groupedByStaff[event.staffId]) {
-                                        groupedByStaff[event.staffId] = [];
+                                response.data.forEach(function(item) {
+                                    if (!groupedByStaff[item.staffId]) {
+                                        groupedByStaff[item.staffId] = [];
                                     }
-                                    groupedByStaff[event.staffId].push(event);
+                                    groupedByStaff[item.staffId].push(item);
                                 });
+
 
                                 // Iterate over each staff group and create rows
                                 Object.keys(groupedByStaff).forEach(function(staffId) {
                                     var eventsForStaff = groupedByStaff[staffId];
+                                    //events for staff ..
                                     var rowspan = eventsForStaff
                                         .length; // Calculate rowspan for the name cell
 
@@ -491,9 +531,17 @@
 
                                         // Fill other columns
                                         row[0] = event.numeric_id;
-                                        row[2] = formatDate(event.start) +
+                                        console.log("Leave:", event);
+                                        if (event.leave.length != 0) {
+                                            row[2] = event.leave.leave_category
+                                                .leave_type_name + "(" + event
+                                                .duration + ")";
+                                        } else {
+                                            row[2] = "N/A";
+                                        }
+                                        row[3] = formatDate(event.start) +
                                             ' - ' + formatDate(event.end);
-                                        row[3] = event.leave;
+                                        row[5] = event.leave;
 
                                         if (event.leave.length == 0) {
                                             row[4] = `
@@ -556,9 +604,10 @@
 
                                         }
                                         // Add the row to the table
-                                        rows.push(row);
+                                        rows1.push(row);
                                     });
                                 });
+
 
                                 // Return the events to FullCalendar
                                 var events = [];
@@ -578,23 +627,21 @@
                                 });
 
                                 successCallback(events);
-
                                 // Add the rows to the DataTable
-                                table.clear().rows.add(rows).draw();
+                                console.log(rows1);
+                                table.clear().rows.add(rows1).draw();
 
                                 //leave approval, rejection and application
                                 let currentLeaveId;
 
                                 $('.approve-btn').click(function() {
                                     //prevent default
-                                    console.log("testing.......")
                                     const leaveId = $(this).data('leave-id');
                                     updateLeaveStatus(leaveId, 'approved');
                                 });
 
                                 $('.reject-btn').click(function() {
                                     currentLeaveId = $(this).data('leave-id');
-                                    console.log('Leave Id:', currentLeaveId);
                                 });
 
                                 $('#confirmReject').click(function() {

@@ -36,24 +36,6 @@ class HomeController extends Controller
 
         $leaveTypes = LeaveType::all()->keyBy('leave_type_id');
 
-        //events and trainings
-        $events = Event::where(function ($query) use ($today, $tomorrow) {
-            $query->whereBetween('event_start_date', [$today, $tomorrow])
-                ->orWhere(function ($q) {
-                    $q->where('event_start_date', '<', now())
-                        ->where('event_end_date', '>', now());
-                });
-        })->get();
-
-        $trainings = Training::where(function ($query) use ($today, $tomorrow) {
-            $query->whereBetween('training_start_date', [$today, $tomorrow])
-                ->orWhere(function ($q) {
-                    $q->where('training_start_date', '<', now())
-                        ->where('training_end_date', '>', now());
-                });
-        })->get();
-
-
 
         // Fetch leave requests where end date is greater than today
         $leaveRequests = Leave::where('end_date', '>', $today)->get();
@@ -209,26 +191,40 @@ class HomeController extends Controller
             }
         }
 
-        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings','leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays'));
+        //get today's birthdates
+        // Get users born today (ignoring the year)
+        $todayBirthdays = Employee::whereMonth('date_of_birth', Carbon::today()->month)
+            ->whereDay('date_of_birth', Carbon::today()->day)
+            ->get();
+
+        //number of people on leave
+        $numberOfPeopleOnLeave = Leave::whereJsonContains('leave_request_status', ['Executive Secretary' => 'approved'])->count();
+
+        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'todayBirthdays', 'numberOfPeopleOnLeave'));
     }
 
     //landing page controller
-    public function landing_page () {
-        return view ('landing_page.landing_page');
+    public function landing_page()
+    {
+        return view('landing_page.landing_page');
     }
 
     //service-details for the landing pagge
-    public function  appraisals () {
-        return view ('landing_page.service-details-appraisals');
+    public function appraisals()
+    {
+        return view('landing_page.service-details-appraisals');
     }
-    public function  training_travel () {
-        return view ('landing_page.service-details-training-travel');
+    public function training_travel()
+    {
+        return view('landing_page.service-details-training-travel');
     }
-    public function  leave_schedule () {
-        return view ('landing_page.service-details-leave-schedule');
+    public function leave_schedule()
+    {
+        return view('landing_page.service-details-leave-schedule');
     }
-    public function  applications () {
-        return view ('landing_page.service-details-applications');
+    public function applications()
+    {
+        return view('landing_page.service-details-applications');
     }
 
     //handle contact emails
@@ -250,13 +246,13 @@ class HomeController extends Controller
         ];
 
         try {
-            Mail::raw( $data['message'] . ''.'Message from : ' . $data['email'], function ($mail) use ($request) {
+            Mail::raw($data['message'] . '' . 'Message from : ' . $data['email'], function ($mail) use ($request) {
                 // to be sent to this email
                 $mail->to('dev.david1300@gmail.com')
                     ->subject($request->input('subject'));
 
-        });
-        return redirect()->back()->with('success', 'Your message has been sent successfully!');
+            });
+            return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
             // Flash error message if email fails
             return redirect()->back()->with('error', 'Failed to send your message. Please try again.');

@@ -7,12 +7,14 @@ use App\Models\Employee;
 use App\Models\Leave;
 use App\Models\LeaveRoster;
 use App\Models\LeaveType;
+use App\Models\PublicHoliday;
 use App\Models\User;
 use App\Notifications\LeaveApplied;
 use App\Notifications\LeaveApproval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Notification;
+use Spatie\Permission\Models\Role;
 
 class LeaveController extends Controller
 {
@@ -23,6 +25,9 @@ class LeaveController extends Controller
     {
         $leaves = Leave::with('employee', 'leaveCategory')->get();
         $totalLeaves = $leaves->count();
+        //get all the roles in the system except Staff
+        $roles = Role::whereNotIn('name', ['Assistant Executive Secretary', 'Staff'])->pluck('name')->toArray();
+
         $totalDays = $leaves->sum(function ($leave) {
             return Carbon::parse($leave->start_date)->diffInDays(Carbon::parse($leave->end_date)) + 1;
         });
@@ -39,7 +44,7 @@ class LeaveController extends Controller
         $useDays = $employee->totalLeaveDays();
         //departments
         $departments = Department::pluck('department_name', 'department_id')->toArray();
-        return view('leaves.index', compact('leaves', 'totalLeaves', 'totalDays', 'leavesPerCategory', 'users', 'totalLeaveDaysAllocated', 'useDays', 'departments'));
+        return view('leaves.index', compact('leaves', 'totalLeaves', 'totalDays', 'leavesPerCategory', 'users', 'totalLeaveDaysAllocated', 'useDays', 'departments', 'roles'));
     }
 
     /**
@@ -50,9 +55,10 @@ class LeaveController extends Controller
         //get the logged in user email
         $user_id = auth()->user()->id;
         $leaveTypes = LeaveType::pluck('leave_type_name', 'leave_type_id')->toArray();
+        $holidays = PublicHoliday::pluck('holiday_date')->toArray();
         $existingValuesArray = [];
         $users = User::pluck('name', 'id')->toArray();
-        return view('leaves.create', compact('leaveTypes', 'user_id', 'existingValuesArray', 'users'));
+        return view('leaves.create', compact('leaveTypes', 'user_id', 'existingValuesArray', 'users', 'holidays'));
 
     }
 
@@ -64,9 +70,10 @@ class LeaveController extends Controller
         //get the logged in user email
         $user_id = auth()->user()->id;
         $leaveTypes = LeaveType::pluck('leave_type_name', 'leave_type_id')->toArray();
+        $holidays = PublicHoliday::pluck('holiday_date')->toArray();
         $existingValuesArray = [];
         $users = User::pluck('name', 'id')->toArray();
-        return view('leaves.create', compact('leaveTypes', 'user_id', 'existingValuesArray', 'users', 'leaveRoster'));
+        return view('leaves.create', compact('leaveTypes', 'user_id', 'existingValuesArray', 'users', 'leaveRoster', 'holidays'));
 
     }
 
@@ -75,10 +82,25 @@ class LeaveController extends Controller
      */
     public function store(Request $request)
     {
+
+        $requestData = $request->all();
+
+
+        // Check if the handover_note_file is present in the request
+        if ($request->hasFile('handover_note_file')) {
+            // Store the file and get the file path
+            $filePath = $request->file('handover_note_file')->store('handover_notes', 'public');
+
+            // Add the file path to the validated data
+            $requestData['handover_note_file'] = $filePath;
+        }
         // Create the leave record
-        $leaveCreated = Leave::create($request->all());
+        $leaveCreated = Leave::create($requestData);
 
         if ($leaveCreated) {
+            //notify people who will stand in for the person on leave, $leaveCreated->my_work_will_be_done_by is a string separated by commas
+            $myWorkWillBeDoneBy = explode(',', $leaveCreated->my_work_will_be_done_by['users']);
+            $doneBy = User::whereIn('id', $myWorkWillBeDoneBy)->get();
             // Get users with the superadmin role
             $users = User::role('HR')->get();
 
@@ -89,12 +111,12 @@ class LeaveController extends Controller
 
             //add hod to users array
             $users->push($hod);
-
+            $users->push($doneBy);
             // Send notifications to those users
             Notification::send($users, new LeaveApplied($leaveCreated));
         }
 
-        return redirect()->route('leaves.index')->with('success', 'Leave created successfully.');
+        return redirect()->route('leaves.index')->with('success', 'Leave submitted successfully.');
     }
 
     /**
@@ -252,8 +274,68 @@ class LeaveController extends Controller
         ]);
     }
 
+    public function leaveData(Request $request)
+    {
+        $department = $request->input('department', 'all');
 
+        if (auth()->user()->isAdminOrSecretary()) {
+            // Query to get the leave roster with employee and leave relationships
+            $leaveRosterQuery = LeaveRoster::with(['employee', 'leave', 'leave.leaveCategory'])
+                ->whereHas('leave');
+        } else {
 
+            $leaveRosterQuery = LeaveRoster::with(['employee', 'leave', 'leave.leaveCategory']);
+        }
+        // Filter by department if selected
+        if ($department !== 'all') {
+            $employeeIds = Employee::where('department_id', $department)->pluck('employee_id');
+            $leaveRosterQuery->whereIn('employee_id', $employeeIds);
+        }
+
+        // Retrieve the filtered leave roster
+        $leaveRoster = $leaveRosterQuery->get()->map(function ($leave, $index) {
+            return [
+                'numeric_id' => $index + 1,
+                'leave_roster_id' => $leave->leave_roster_id,
+                'title' => $leave->leave_title,
+                'start' => $leave->start_date->toIso8601String(),
+                'end' => $leave->end_date->toIso8601String(),
+                'staffId' => $leave->employee->staff_id ?? null,
+                'first_name' => $leave->employee->first_name ?? null,
+                'last_name' => $leave->employee->last_name ?? null,
+                'leave' => $leave->leave,
+                // Add duration by calling the durationForLeave method
+                'duration' => $leave->durationForLeave() // This will return the duration excluding weekends and holidays
+            ];
+        });
+
+        // Query to find leaves that are not in the leave roster
+        $orphanedLeaves = Leave::with('leaveCategory')->whereNull('leave_roster_id')
+            ->with('employee')
+            ->get()
+            ->map(function ($leave, $index) use ($leaveRoster) {
+                $indexOffset = $leaveRoster->count(); // Continue numeric ID from leaveRoster
+                return [
+                    'numeric_id' => $indexOffset + $index + 1,
+                    'leave_roster_id' => null, // Not in leave roster
+                    'title' => $leave->leave_title,
+                    'start' => $leave->start_date->toIso8601String(),
+                    'end' => $leave->end_date->toIso8601String(),
+                    'staffId' => $leave->employee->staff_id ?? null,
+                    'first_name' => $leave->employee->first_name ?? null,
+                    'last_name' => $leave->employee->last_name ?? null,
+                    'leave' => $leave,
+                    // Add duration for orphaned leaves as well
+                    'duration' => $leave->durationForLeave()
+                ];
+            });
+
+        // Combine the leaveRoster and orphanedLeaves
+        $combinedLeaves = collect($leaveRoster)->merge($orphanedLeaves);
+
+        // Return the combined leave data
+        return response()->json(['success' => true, 'data' => $combinedLeaves]);
+    }
 
 
 }
