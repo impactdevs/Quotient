@@ -9,7 +9,7 @@
 - **Leave Roster Management**: Automate leave scheduling to prevent conflicts and ensure adequate workforce availability.
 - **Dashboard**: Gain insights into HR metrics, leave statistics, and employee attendance.
 
-## Installation
+## Installation Instructions
 ### Requirements
 - PHP (Latest Version)
 - Laravel Framework
