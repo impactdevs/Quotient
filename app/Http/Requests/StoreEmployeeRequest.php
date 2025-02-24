@@ -61,6 +61,7 @@ class StoreEmployeeRequest extends FormRequest
             'passport_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'date_of_birth' => 'nullable|date|before:today',
             'entitled_leave_days' => 'nullable|integer',
+            'basic_salary' => 'nullable'
         ];
     }
 

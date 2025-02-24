@@ -1,6 +1,5 @@
 <x-app-layout>
-    <div class="mt-3">
-        <h5 class="text-center mt-5">Leave Types</h5>
+    <div >
         <div class="mt-3">
             <a href="{{ route('leave-types.create') }}" class="btn btn-primary">Add Leave Type</a>
         </div>

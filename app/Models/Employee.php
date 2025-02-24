@@ -54,6 +54,7 @@ class Employee extends Model
         'national_id_photo',
         'contract_documents',
         'entitled_leave_days',
+        'basic_salary'
     ];
 
     // If you want to use casts for certain attributes

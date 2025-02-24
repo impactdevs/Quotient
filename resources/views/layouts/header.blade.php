@@ -3,102 +3,62 @@
     <p class="text-primary fw-bold fs-4">
         @php
             $title = '';
+            $user = auth()->user();
+            $routeName = request()->route()->getName();
+            $action = last(explode('.', $routeName));
 
             if (request()->routeIs('dashboard')) {
                 $title = 'Dashboard';
-            }
-
-            if (request()->routeIs('leaves.index')) {
-                $title = auth()->user()->isAdminOrSecretary() ? 'Leaves' : 'Apply For Leave';
-            }
-
-            if (request()->routeIs('leave-roster.index') || request()->routeIs('leave-roster-tabular.index')) {
-                $title = auth()->user()->isAdminOrSecretary() ? 'Leave Roster' : 'My Leave Roster';
-            }
-
-            if (request()->routeIs('leave-management')) {
-                $title = 'Leave Management';
-            }
-
-            if (request()->routeIs('appraisals.index')) {
-                $title = auth()->user()->isAdminOrSecretary() ? 'Appraisals' : 'My Appraisals';
-            }
-
-            if (request()->routeIs('attendances.index')) {
-                $title = auth()->user()->isAdminOrSecretary() ? 'Attendances' : 'My Attendance History';
-            }
-
-            if (
-                request()->routeIs('trainings.index') ||
-                request()->routeIs('trainings.show') ||
-                request()->routeIs('trainings.edit') ||
-                request()->routeIs('trainings.create') ||
-                request()->routeIs('out-of-station-trainings.index') ||
-                request()->routeIs('out-of-station-trainings.create') ||
-                request()->routeIs('out-of-station-trainings.edit') ||
-                request()->routeIs('out-of-station-trainings.show') ||
-                request()->routeIs('apply')
-            ) {
-                $title = 'Trainings/Travels';
-            }
-
-            if (request()->routeIs('events.index') || request()->routeIs('events.show')) {
-                $title = 'Events';
-            }
-
-            if (request()->routeIs('employees.index') || request()->routeIs('employees.show')) {
-                $title = auth()->user()->isAdminOrSecretary() ? 'Employees' : 'About Me';
-            }
-
-            if (request()->routeIs('applications.index')) {
-                $title = 'Applications';
-            }
-
-            if (
-                request()->routeIs('recruitments.index') ||
-                request()->routeIs('recruitments.show') ||
-                request()->routeIs('recruitments.edit') ||
-                request()->routeIs('recruitments.create')
-            ) {
-                $title = 'Staff Recruitment';
-            }
-
-            if (request()->routeIs('leave-types.index')) {
-                $title = 'Leave Types';
-            }
-
-            if (request()->routeIs('company-jobs.index')) {
-                $title = 'Company Jobs';
-            }
-
-            if (request()->routeIs('positions.index')) {
-                $title = 'Positions';
-            }
-
-            if (request()->routeIs('roles.index')) {
-                $title = 'Roles';
-            }
-
-            if (request()->routeIs('permissions.index')) {
-                $title = 'Permissions';
-            }
-
-            if (request()->routeIs('users.index')) {
-                $title = 'User Management';
-            }
-
-            if (request()->routeIs('departments.index')) {
-                $title = 'Departments';
-            }
-
-            if (request()->routeIs('pay-roll.index')) {
-                $title = 'Pay Roll Management';
+            } elseif (request()->routeIs('leaves.index')) {
+                $title = $user->isAdminOrSecretary() ? 'Leaves Management' : 'Apply For Leave';
+            } elseif (request()->routeIs(['leave-roster.*', 'leave-roster-tabular.index'])) {
+                $title = $user->isAdminOrSecretary() ? 'Leave Roster' : 'My Leave Schedule';
+            } elseif (request()->routeIs('leave-management')) {
+                $title = 'Leave Management System';
+            } elseif (request()->routeIs('appraisals.index')) {
+                $title = $user->isAdminOrSecretary() ? 'Performance Appraisals' : 'My Appraisals';
+            } elseif (request()->routeIs('attendances.index')) {
+                $title = $user->isAdminOrSecretary() ? 'Attendance Records' : 'My Attendance History';
+            } elseif (request()->routeIs(['trainings.*', 'out-of-station-trainings.*', 'apply'])) {
+                $resource = str_contains($routeName, 'out-of-station') ? 'Travel' : 'Training';
+                $title = in_array($action, ['create', 'edit', 'show'])
+                    ? ucfirst($action) . " $resource"
+                    : 'Trainings & Travels';
+            } elseif (request()->routeIs('events.*')) {
+                $title = in_array($action, ['create', 'edit', 'show']) ? ucfirst($action) . ' Event' : 'Event Calendar';
+            } elseif (request()->routeIs('employees.*')) {
+                $title = $user->isAdminOrSecretary()
+                    ? (in_array($action, ['create', 'edit', 'show'])
+                        ? ucfirst($action) . ' Employee'
+                        : 'Employee Directory')
+                    : 'About Me';
+            } elseif (request()->routeIs('applications.index')) {
+                $title = 'Applications Dashboard';
+            } elseif (request()->routeIs('recruitments.*')) {
+                $title = in_array($action, ['create', 'edit', 'show'])
+                    ? ucfirst($action) . ' Recruitment'
+                    : 'Staff Recruitment';
+            } elseif (request()->routeIs('leave-types.index')) {
+                $title = 'Leave Type Policies';
+            } elseif (request()->routeIs('company-jobs.index')) {
+                $title = 'Job Positions';
+            } elseif (request()->routeIs('positions.index')) {
+                $title = 'Organizational Roles';
+            } elseif (request()->routeIs('roles.index')) {
+                $title = 'System Roles';
+            } elseif (request()->routeIs('permissions.index')) {
+                $title = 'Access Permissions';
+            } elseif (request()->routeIs('users.index')) {
+                $title = 'User Accounts';
+            } elseif (request()->routeIs('departments.index')) {
+                $title = 'Departments Structure';
+            } elseif (request()->routeIs('pay-roll.index')) {
+                $title = 'Payroll Administration';
             }
         @endphp
 
         {{ $title }}
     </p>
-
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown">

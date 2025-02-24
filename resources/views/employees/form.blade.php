@@ -14,7 +14,8 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <x-forms.input name="title" label="Title" type="text" id="title"
-                placeholder="Enter Employee Title eg. MR., DR., Prof." value="{{ old('title', $employee->title ?? '') }}" />
+                placeholder="Enter Employee Title eg. MR., DR., Prof."
+                value="{{ old('title', $employee->title ?? '') }}" />
         </div>
         <div class="col-md-6">
             <x-forms.input name="staff_id" label="Staff ID" type="text" id="staff_id"
@@ -77,6 +78,11 @@
             <x-forms.dropdown name="department_id" label="Department" id="department_id" :options="$departments"
                 :selected="$employee->department_id ?? ''" />
         </div>
+    </div>
+
+    <div class="row mb-3">
+        <x-forms.input name="basic_salary" label="Basic Salary" type="text" id="basic_salary"
+            placeholder="Enter Basic Salary" value="{{ old('basic_salary', $employee->basic_salary ?? '') }}" />
     </div>
 </fieldset>
 

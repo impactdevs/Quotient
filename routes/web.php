@@ -52,14 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/leave-data', [LeaveController::class, 'leaveData'])->name('leave.data');
 
     Route::resource('events', EventController::class);
-    Route::resource('trainings', TrainingController::class);
-    Route::resource('out-of-station-trainings', OutOfStationTrainingController::class);
-    Route::post('/out-of-station-trainings/{training}/status', [OutOfStationTrainingController::class, 'approveOrReject'])
-        ->name('out-of-station-trainings.approveOrReject');
-    Route::get('training-application', [TrainingController::class, 'apply'])->name('apply');
-    Route::post('save-training-application', [TrainingController::class, 'applyTraining'])->name('save.apply');
-    Route::post('/trainings/{training}/status', [TrainingController::class, 'approveOrReject'])
-        ->name('trainings.approveOrReject');
+
     Route::resource('positions', PositionController::class);
     Route::resource('attendances', AttendanceController::class);
     Route::resource('leaves', LeaveController::class);
