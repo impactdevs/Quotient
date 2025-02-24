@@ -15,15 +15,8 @@
                 $title = $user->isAdminOrSecretary() ? 'Leave Roster' : 'My Leave Schedule';
             } elseif (request()->routeIs('leave-management')) {
                 $title = 'Leave Management System';
-            } elseif (request()->routeIs('appraisals.index')) {
-                $title = $user->isAdminOrSecretary() ? 'Performance Appraisals' : 'My Appraisals';
             } elseif (request()->routeIs('attendances.index')) {
                 $title = $user->isAdminOrSecretary() ? 'Attendance Records' : 'My Attendance History';
-            } elseif (request()->routeIs(['trainings.*', 'out-of-station-trainings.*', 'apply'])) {
-                $resource = str_contains($routeName, 'out-of-station') ? 'Travel' : 'Training';
-                $title = in_array($action, ['create', 'edit', 'show'])
-                    ? ucfirst($action) . " $resource"
-                    : 'Trainings & Travels';
             } elseif (request()->routeIs('events.*')) {
                 $title = in_array($action, ['create', 'edit', 'show']) ? ucfirst($action) . ' Event' : 'Event Calendar';
             } elseif (request()->routeIs('employees.*')) {
@@ -32,16 +25,8 @@
                         ? ucfirst($action) . ' Employee'
                         : 'Employee Directory')
                     : 'About Me';
-            } elseif (request()->routeIs('applications.index')) {
-                $title = 'Applications Dashboard';
-            } elseif (request()->routeIs('recruitments.*')) {
-                $title = in_array($action, ['create', 'edit', 'show'])
-                    ? ucfirst($action) . ' Recruitment'
-                    : 'Staff Recruitment';
-            } elseif (request()->routeIs('leave-types.index')) {
+            }elseif (request()->routeIs('leave-types.index')) {
                 $title = 'Leave Type Policies';
-            } elseif (request()->routeIs('company-jobs.index')) {
-                $title = 'Job Positions';
             } elseif (request()->routeIs('positions.index')) {
                 $title = 'Organizational Roles';
             } elseif (request()->routeIs('roles.index')) {

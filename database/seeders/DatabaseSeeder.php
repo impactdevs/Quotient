@@ -44,9 +44,7 @@ class DatabaseSeeder extends Seeder
         //seed the users with their corresponding
         $this->call(UserSeeder::class);
 
-        // $this->call(TrainingSeeder::class);
-
-        // $this->call(EventsSeeder::class);
+        $this->call(EventsSeeder::class);
 
         $this->call(AttendanceSeeder::class);
 

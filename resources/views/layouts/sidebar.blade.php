@@ -38,6 +38,14 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('events.index')) bg-secondary @endif"
+                    href="{{ route('events.index') }}">
+                    <i class="bi bi-check2-all"></i>
+                    {{ auth()->user()->isAdminOrSecretary() ? 'Events' : 'My Events' }}
+                </a>
+            </li>
+
 
             <li class="nav-item">
                 @php
