@@ -21,6 +21,7 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\PayrollExport;
+use App\Http\Controllers\GeneralSettingsController;
 use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
@@ -90,6 +91,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/get-count', [NotificationController::class, 'getCount']);
 
     Route::resource('tax-configurations', TaxConfigurationController::class);
+    Route::resource('general-settings', GeneralSettingsController::class);
+
 
     Route::get('pay-roll', [PayrollController::class, 'index'])->name('pay-roll.index');
     Route::get('/payslip/{payroll}', [PayrollController::class, 'downloadPayslip'])->name('payroll.payslip');
