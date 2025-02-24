@@ -11,13 +11,17 @@ use App\Http\Controllers\LeaveRosterController;
 use App\Http\Controllers\LeaveTypesController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OutOfStationTrainingController;
+use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TaxConfigurationController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use App\Exports\PayrollExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
     return redirect()->route('landing');
@@ -85,10 +89,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/get-count', [NotificationController::class, 'getCount']);
 
+    Route::resource('tax-configurations', TaxConfigurationController::class);
 
+    Route::get('pay-roll', [PayrollController::class, 'index'])->name('pay-roll.index');
+    Route::get('/payslip/{payroll}', [PayrollController::class, 'downloadPayslip'])->name('payroll.payslip');
 
-
-
+    Route::get('/payroll/export', function () {
+        return Excel::download(new PayrollExport, 'payroll.xlsx');
+    })->name('pay-roll.export');
 });
 
 require __DIR__ . '/auth.php';

@@ -57,7 +57,8 @@
                             <div class="card info-card revenue-card">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Attendees <span>| Today</span></h5>
+                                    <h5 class="card-title" style="white-space: nowrap;">Attendees <span>| Today</span>
+                                    </h5>
 
                                     <div class="d-flex align-items-center">
                                         <div
@@ -102,7 +103,8 @@
                             <div class="card info-card customers-card">
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Birthdays <span>| Today</span></h5>
+                                    <h5 class="card-title" style="white-space: nowrap;">Birthdays <span>| Today</span>
+                                    </h5>
 
                                     <div class="d-flex align-items-center">
                                         <div

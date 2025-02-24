@@ -35,6 +35,8 @@ return new class extends Migration {
             $table->string('date_of_birth')->nullable();
             $table->unsignedBigInteger('user_id')->references('id')->on('users');
             $table->integer('entitled_leave_days')->default(30);
+            $table->decimal('basic_salary', 20, 5)->nullable(); // In UGX
+            $table->json('allowances')->nullable(); // e.g., {"housing": 500000, "medical": 200000}
             $table->timestamps();
         });
     }

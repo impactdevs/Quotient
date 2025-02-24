@@ -34,6 +34,7 @@ class EmployeeFactory extends Factory
             'next_of_kin' => $this->faker->name,
             'passport_photo' => null,
             'date_of_birth' => $this->faker->date(),
+            'basic_salary' => $this->faker->numberBetween(100000, 20000000)
         ];
     }
 }

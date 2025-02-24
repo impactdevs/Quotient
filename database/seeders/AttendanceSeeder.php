@@ -13,7 +13,7 @@ class AttendanceSeeder extends Seeder
      */
     public function run(): void
     {
-        $employees = \DB::table('employees')->pluck('employee_id'); // Assuming this table already exists and has data
+        $employees = DB::table('employees')->pluck('employee_id'); // Assuming this table already exists and has data
 
         foreach ($employees as $employee_id) {
             // Set the attendance date to today

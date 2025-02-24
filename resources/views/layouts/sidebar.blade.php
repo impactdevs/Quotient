@@ -49,14 +49,14 @@
                     {{ auth()->user()->isAdminOrSecretary() ? 'Employees' : 'About Me' }}
                 </a>
             </li>
-            @if(auth()->user()->isAdminOrSecretary())
-            <li class="nav-item">
-                <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('leave-roster.index') || request()->routeIs('leave-roster-tabular.index')) bg-secondary @endif"
-                    href="{{ route('leave-roster.index') }}">
-                    <i class="bi bi-list-ul"></i>
-                    Payroll Management
-                </a>
-            </li>
+            @if (auth()->user()->isAdminOrSecretary())
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('pay-roll.index')) bg-secondary @endif"
+                        href="{{ route('pay-roll.index') }}">
+                        <i class="bi bi-list-ul"></i>
+                        Payroll Management
+                    </a>
+                </li>
             @endif
 
         </ul>
@@ -67,7 +67,7 @@
                 <i class="bi bi-gear text-light"></i>
             </h6>
             <ul class="nav flex-column mb-auto">
-                @foreach ([['route' => 'leave-types.index', 'icon' => 'bi-gear', 'label' => 'Leave Types'], ['route' => 'positions.index', 'icon' => 'bi-gear', 'label' => 'Positions'], ['route' => 'roles.index', 'icon' => 'bi-gear', 'label' => 'Roles'], ['route' => 'permissions.index', 'icon' => 'bi-gear', 'label' => 'Permissions'], ['route' => 'users.index', 'icon' => 'bi-gear', 'label' => 'User Management'], ['route' => 'departments.index', 'icon' => 'bi-gear', 'label' => 'Departments']] as $item)
+                @foreach ([['route' => 'leave-types.index', 'icon' => 'bi-gear', 'label' => 'Leave Types'], ['route' => 'positions.index', 'icon' => 'bi-gear', 'label' => 'Positions'], ['route' => 'roles.index', 'icon' => 'bi-gear', 'label' => 'Roles'], ['route' => 'permissions.index', 'icon' => 'bi-gear', 'label' => 'Permissions'], ['route' => 'users.index', 'icon' => 'bi-gear', 'label' => 'User Management'], ['route' => 'departments.index', 'icon' => 'bi-gear', 'label' => 'Departments'], ['route' => 'tax-configurations.index', 'icon' => 'bi-gear', 'label' => 'Tax Configurations']] as $item)
                     <li class="nav-item">
                         <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs($item['route'])) bg-secondary @endif"
                             href="{{ route($item['route']) }}">

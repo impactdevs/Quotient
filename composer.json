@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "barryvdh/laravel-dompdf": "^3.1",
         "binarytorch/larecipe": "^2.7",
         "guzzlehttp/guzzle": "^7.9",
         "hotwired-laravel/turbo-laravel": "2.0.0",
@@ -15,6 +16,7 @@
         "laravel/framework": "^11.9",
         "laravel/reverb": "^1.0",
         "laravel/tinker": "^2.9",
+        "maatwebsite/excel": "^3.1",
         "owen-it/laravel-auditing": "^13.6",
         "spatie/laravel-permission": "^6.9",
         "spatie/laravel-query-builder": "^6.2",

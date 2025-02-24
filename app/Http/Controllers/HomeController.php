@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Application;
-use App\Models\Appraisal;
 use App\Models\Attendance;
 use App\Models\Employee;
 use App\Models\Leave;
 use App\Models\LeaveType;
-use App\Models\Training;
 use Carbon\Carbon;
-use App\Models\Event;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;

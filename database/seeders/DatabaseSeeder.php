@@ -49,5 +49,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(EventsSeeder::class);
 
         $this->call(AttendanceSeeder::class);
+
+        $this->call(TaxConfigurationSeeder::class);
+        
+        $this->call(SettingSeeder::class);
     }
 }

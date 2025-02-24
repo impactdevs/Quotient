@@ -90,6 +90,10 @@
             if (request()->routeIs('departments.index')) {
                 $title = 'Departments';
             }
+
+            if (request()->routeIs('pay-roll.index')) {
+                $title = 'Pay Roll Management';
+            }
         @endphp
 
         {{ $title }}
