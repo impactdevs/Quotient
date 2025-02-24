@@ -138,7 +138,7 @@
 
                         <!-- Ongoing Appraisals -->
 
-                        <div class="col-12">
+                        {{-- <div class="col-12">
                             <div class="card">
 
 
@@ -146,7 +146,7 @@
 
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div><!-- End Left side columns -->
