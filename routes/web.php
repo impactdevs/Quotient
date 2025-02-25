@@ -21,6 +21,7 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Exports\PayrollExport;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\GeneralSettingsController;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -52,11 +53,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/leave-data', [LeaveController::class, 'leaveData'])->name('leave.data');
 
     Route::resource('events', EventController::class);
+    Route::resource('expenses', ExpenseController::class);
 
     Route::resource('positions', PositionController::class);
     Route::resource('attendances', AttendanceController::class);
     Route::resource('leaves', LeaveController::class);
-    //leave actions
+
     Route::post('/leaves/{leave}/status', [LeaveController::class, 'approveOrReject'])
         ->name('leaves.approveOrReject');
     Route::post('save-leave-data', [LeaveRosterController::class, 'saveLeaveRosterData'])->name('save-leave-data');

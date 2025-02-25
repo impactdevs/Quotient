@@ -15,6 +15,14 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('leave-roster.index') || request()->routeIs('leave-roster-tabular.index')) bg-secondary @endif"
+                    href="{{ route('leave-roster.index') }}">
+                    <i class="bi bi-calendar-plus"></i>
+                    {{ auth()->user()->isAdminOrSecretary() ? 'Leave Roster' : 'My Leave Roster' }}
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('leaves.index')) bg-secondary @endif"
                     href="{{ route('leaves.index') }}">
                     <i class="bi bi-bus-front"></i>
@@ -22,13 +30,7 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('leave-roster.index') || request()->routeIs('leave-roster-tabular.index')) bg-secondary @endif"
-                    href="{{ route('leave-roster.index') }}">
-                    <i class="bi bi-calendar-plus"></i>
-                    {{ auth()->user()->isAdminOrSecretary() ? 'Leave Roster' : 'My Leave Roster' }}
-                </a>
-            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('attendances.index')) bg-secondary @endif"
@@ -41,8 +43,16 @@
             <li class="nav-item">
                 <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('events.index')) bg-secondary @endif"
                     href="{{ route('events.index') }}">
-                    <i class="bi bi-check2-all"></i>
+                    <i class="bi bi-calendar"></i>
                     {{ auth()->user()->isAdminOrSecretary() ? 'Events' : 'My Events' }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('expenses.index')) bg-secondary @endif"
+                    href="{{ route('expenses.index') }}">
+                    <i class="bi bi-currency-dollar"></i>
+                    {{ auth()->user()->isAdminOrSecretary() ? 'Expenses' : 'My Expenses' }}
                 </a>
             </li>
 
@@ -57,6 +67,7 @@
                     {{ auth()->user()->isAdminOrSecretary() ? 'Employees' : 'About Me' }}
                 </a>
             </li>
+
             @if (auth()->user()->isAdminOrSecretary())
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('pay-roll.index')) bg-secondary @endif"

@@ -25,12 +25,18 @@
                         ? ucfirst($action) . ' Employee'
                         : 'Employee Directory')
                     : 'About Me';
-            }elseif (request()->routeIs('leave-types.index')) {
+            } elseif (request()->routeIs('leave-types.index')) {
                 $title = 'Leave Type Policies';
             } elseif (request()->routeIs('positions.index')) {
                 $title = 'Organizational Roles';
             } elseif (request()->routeIs('roles.index')) {
                 $title = 'System Roles';
+            } elseif (
+                request()->routeIs('expenses.index') ||
+                request()->routeIs('expenses.create') ||
+                request()->routeIs('expenses.edit')
+            ) {
+                $title = 'Expenses';
             } elseif (request()->routeIs('permissions.index')) {
                 $title = 'Access Permissions';
             } elseif (request()->routeIs('users.index')) {

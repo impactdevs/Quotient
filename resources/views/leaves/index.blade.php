@@ -1,5 +1,40 @@
 <x-app-layout>
     <section class="section dashboard m-2">
+        <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true"
+                data-bs-autohide="false"> <!-- Disable auto-hide on parent -->
+                <div class="toast-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-cake2" viewBox="0 0 16 16">
+                        <!-- Cake icon path -->
+                    </svg>
+                    <strong class="me-auto">Notice</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    <p>First fill up the leave roster with your leave schedules, then come back here</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toastEl = document.querySelector('.toast');
+                const toast = new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 5000
+                });
+
+                // Show toast immediately
+                toast.show();
+
+                // Handle manual close
+                toastEl.addEventListener('hidden.bs.toast', () => {
+                    // Clean up any pending timeouts
+                    toast.dispose();
+                });
+            });
+        </script>
         <div class="row">
             <!-- Left side columns -->
             <div class="col-lg-8">
@@ -125,7 +160,8 @@
         <div class="offcanvas-header d-flex justify-content-between align-items-center">
             <h5 id="eventOffCanvasLabel" class="fs-5 fw-bold">Roster Options</h5>
             <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" id="applyLeave" title="Apply for leave">
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="applyLeave"
+                    title="Apply for leave">
                     <i class="bi bi-pencil"></i> Apply Leave
                 </button>
                 <button type="button" class="btn btn-sm btn-outline-danger" id="deleteEvent" title="Delete event">

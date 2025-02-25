@@ -187,6 +187,48 @@
                         </div>
                     </div><!-- End Website Traffic -->
 
+                                        <!-- Events -->
+                                        <div class="card">
+                                            <div class="card-body pb-0">
+                                                <h5 class="card-title">Events <span>| Ongoing, Due Today & Tomorrow</span>
+                                                </h5>
+                    
+                                                <div class="news">
+                                                    @foreach ($events as $event)
+                                                        <div class="post-item clearfix">
+                                                            <img src="{{ 'assets/img/event.gif' }}" alt="">
+                                                            <h4><a
+                                                                    href="{{ route('events.show', $event->event_id) }}">{{ $event->event_title }}</a>
+                                                            </h4>
+                                                            <p class="description">{{ $event->event_description }}</p>
+                                                            <p>
+                                                                @if (\Carbon\Carbon::parse($event->event_start_date)->isToday())
+                                                                    <strong>Status:</strong> <span class="badge text-bg-secondary">Due
+                                                                        Today</span>
+                                                                @elseif (\Carbon\Carbon::parse($event->event_start_date)->isTomorrow())
+                                                                    <strong>Status:</strong> <span class="badge text-bg-secondary">Due
+                                                                        Tomorrow</span>
+                                                                @elseif (
+                                                                    \Carbon\Carbon::parse($event->event_start_date)->isPast() &&
+                                                                        \Carbon\Carbon::parse($event->event_end_date)->isFuture())
+                                                                    <strong>Status:</strong> <span
+                                                                        class="badge text-bg-secondary">Ongoing</span>
+                                                                @endif
+                                                            </p>
+                                                        </div>
+                                                    @endforeach                    
+                                                    {{-- if events and or trainings are empty, display a message --}}
+                                                    @if (count($events) == 0)
+                                                        <div class="text-center text-danger">
+                                                            <h4 class="title-danger">No events available</h4>
+                                                        </div>
+                                                    @endif
+                    
+                                                </div><!-- End sidebar recent posts-->
+                    
+                                            </div>
+                                        </div><!-- End Events & Trainings -->
+
                 </div><!-- End Right side columns -->
 
             </div>

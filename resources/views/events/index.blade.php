@@ -101,7 +101,6 @@
                                     </ul>
                                 </div>
                             </td>
-
                         </tr>
                         @empty
                         <tr>

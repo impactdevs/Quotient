@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\Employee;
+use App\Models\Event;
 use App\Models\Leave;
 use App\Models\LeaveType;
 use Carbon\Carbon;
@@ -196,7 +197,16 @@ class HomeController extends Controller
         //number of people on leave
         $numberOfPeopleOnLeave = Leave::whereJsonContains('leave_request_status', ['Executive Secretary' => 'approved'])->count();
 
-        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'todayBirthdays', 'numberOfPeopleOnLeave'));
+                //events and trainings
+                $events = Event::where(function ($query) use ($today, $tomorrow) {
+                    $query->whereBetween('event_start_date', [$today, $tomorrow])
+                        ->orWhere(function ($q) {
+                            $q->where('event_start_date', '<', now())
+                                ->where('event_end_date', '>', now());
+                        });
+                })->get();
+
+        return view('dashboard.index', compact('number_of_employees', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'leaveApprovalData', 'daysUntilExpiry', 'totalLeaves', 'totalDays', 'todayBirthdays', 'numberOfPeopleOnLeave', 'events'));
     }
 
     //landing page controller
