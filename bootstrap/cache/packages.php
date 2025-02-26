@@ -1,4 +1,19 @@
 <?php return array (
+  'artesaos/seotools' => 
+  array (
+    'aliases' => 
+    array (
+      'SEO' => 'Artesaos\\SEOTools\\Facades\\SEOTools',
+      'JsonLd' => 'Artesaos\\SEOTools\\Facades\\JsonLd',
+      'SEOMeta' => 'Artesaos\\SEOTools\\Facades\\SEOMeta',
+      'Twitter' => 'Artesaos\\SEOTools\\Facades\\TwitterCard',
+      'OpenGraph' => 'Artesaos\\SEOTools\\Facades\\OpenGraph',
+    ),
+    'providers' => 
+    array (
+      0 => 'Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider',
+    ),
+  ),
   'barryvdh/laravel-dompdf' => 
   array (
     'aliases' => 
@@ -136,6 +151,13 @@
     'providers' => 
     array (
       0 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
+    ),
+  ),
+  'spatie/laravel-sitemap' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Sitemap\\SitemapServiceProvider',
     ),
   ),
 );

@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    {!! SEOMeta::render() !!} <!-- Renders the SEO meta tags -->
+    {!! OpenGraph::render() !!} <!-- Renders OpenGraph meta tags -->
+    {!! JsonLd::render() !!} <!-- Renders JSON-LD schema -->
     <meta name="description" content="">
     <meta name="author" content="Impact Outsourcing">
     <meta name="generator" content="Human Resource Management System">
@@ -118,16 +121,16 @@
 
             //autoscroll
 
-        // Select the active nav link (if any)
-        var activeLink = document.querySelector('.nav-link.bg-secondary');
+            // Select the active nav link (if any)
+            var activeLink = document.querySelector('.nav-link.bg-secondary');
 
-        if (activeLink) {
-            // Use Bootstrap's scroll behavior with a small JavaScript fix
-            activeLink.scrollIntoView({
-                behavior: 'smooth', // Smooth scrolling
-                block: 'center'     // Align the active link at the center of the sidebar
-            });
-        }
+            if (activeLink) {
+                // Use Bootstrap's scroll behavior with a small JavaScript fix
+                activeLink.scrollIntoView({
+                    behavior: 'smooth', // Smooth scrolling
+                    block: 'center' // Align the active link at the center of the sidebar
+                });
+            }
 
             // Listen for notifications
             Echo.private('App.Models.User.' + userId)
