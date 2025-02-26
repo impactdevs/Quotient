@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Quotient</title>
-    {!! SEOMeta::render() !!} <!-- Renders the SEO meta tags -->
-    {!! OpenGraph::render() !!} <!-- Renders OpenGraph meta tags -->
-    {!! JsonLd::render() !!} <!-- Renders JSON-LD schema -->
     <meta name="description" content="Quotient HR system.">
     <meta name="keywords"
         content="quotient, hr system, leave management, impact outsourcing, human resource management system, expense management system">
