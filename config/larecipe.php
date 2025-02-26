@@ -146,11 +146,11 @@ return [
     */
 
     'seo'                 => [
-        'author'          => '',
-        'description'     => '',
-        'keywords'        => '',
+        'author'          => 'Impact Outsourcing',
+        'description'     => 'Quotient is a human resource management system developed to automate your human resource needs e.g employee management, leave management, events management, expenses, etc',
+        'keywords'        => 'Quotient, impact outsourcing, impact outsourcing, human resource management, expense tracker, leave management',
         'og'              => [
-            'title'       => '',
+            'title'       => 'Quotient',
             'type'        => 'article',
             'url'         => '',
             'image'       => '',

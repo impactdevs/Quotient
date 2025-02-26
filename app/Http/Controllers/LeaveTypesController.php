@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LeaveType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LeaveTypesController extends Controller
 {
@@ -29,9 +30,12 @@ class LeaveTypesController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'leave_type_name' => 'required',
+        ]);
         LeaveType::create($request->all());
 
-        return redirect()->route('leave-types.index')->with('success', 'Event Type created successfully.');
+        return redirect()->route('leave-types.index')->with('success', 'Leave Type created successfully.');
 
     }
 

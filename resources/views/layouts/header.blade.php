@@ -31,6 +31,8 @@
                 $title = 'Organizational Roles';
             } elseif (request()->routeIs('roles.index')) {
                 $title = 'System Roles';
+            } elseif (request()->routeIs(['leave-types.index', 'leave-types.create', 'leave-types.edit'])) {
+                $title = 'Leave Types';
             } elseif (
                 request()->routeIs('expenses.index') ||
                 request()->routeIs('expenses.create') ||

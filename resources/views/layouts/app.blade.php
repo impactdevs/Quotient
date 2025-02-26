@@ -70,7 +70,8 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.2/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.29.0/tableExport.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.2/dist/extensions/export/bootstrap-table-export.min.js">
+    </script>
     <!-- Vendor JS Files -->
 
     @if (session()->has('success'))
@@ -114,6 +115,19 @@
     <script>
         $(document).ready(function() {
             let userId = {{ auth()->user()->id }};
+
+            //autoscroll
+
+        // Select the active nav link (if any)
+        var activeLink = document.querySelector('.nav-link.bg-secondary');
+
+        if (activeLink) {
+            // Use Bootstrap's scroll behavior with a small JavaScript fix
+            activeLink.scrollIntoView({
+                behavior: 'smooth', // Smooth scrolling
+                block: 'center'     // Align the active link at the center of the sidebar
+            });
+        }
 
             // Listen for notifications
             Echo.private('App.Models.User.' + userId)

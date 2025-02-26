@@ -5,6 +5,11 @@
             class="object-fit-contain border rounded img-fluid" style="max-width: 100%; height: auto;">
     </div>
     <div class="d-md-flex flex-column p-0 pt-lg-3">
+        <h6
+        class="text-uppercase px-3 text-body-secondary text-light d-flex justify-content-between align-items-center my-3">
+        <span class="text-light">GENERAL</span>
+        <i class="bi bi-bar-chart text-light"></i>
+    </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('dashboard')) bg-secondary @endif"
@@ -86,29 +91,64 @@
                 <i class="bi bi-gear text-light"></i>
             </h6>
             <ul class="nav flex-column mb-auto">
-                @foreach ([['route' => 'leave-types.index', 'icon' => 'bi-gear', 'label' => 'Leave Types'], ['route' => 'positions.index', 'icon' => 'bi-gear', 'label' => 'Positions'], ['route' => 'roles.index', 'icon' => 'bi-gear', 'label' => 'Roles'], ['route' => 'permissions.index', 'icon' => 'bi-gear', 'label' => 'Permissions'], ['route' => 'users.index', 'icon' => 'bi-gear', 'label' => 'User Management'], ['route' => 'departments.index', 'icon' => 'bi-gear', 'label' => 'Departments'], ['route' => 'tax-configurations.index', 'icon' => 'bi-gear', 'label' => 'Tax Configurations'], ['route' => 'general-settings.index', 'icon' => 'bi-gear', 'label' => 'General Settings']] as $item)
-                    <li class="nav-item">
-                        <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs($item['route'])) bg-secondary @endif"
-                            href="{{ route($item['route']) }}">
-                            <i class="bi {{ $item['icon'] }}"></i>
-                            {{ $item['label'] }}
-                        </a>
-                        @if (!empty($item['sub']))
-                            <ul class="nav flex-column ms-4">
-                                @foreach ($item['sub'] as $subItem)
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs($subItem['route'])) bg-secondary @endif"
-                                            href="{{ route($subItem['route']) }}">
-                                            <i class="bi {{ $subItem['icon'] }}"></i>
-                                            {{ $subItem['label'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </li>
-                @endforeach
+
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['leave-types.index', 'leave-types.create', 'leave-types.edit'])) bg-secondary @endif" href="{{ route('leave-types.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Leave types
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['positions.index', 'positions.create', 'positions.edit'])) bg-secondary @endif" href="{{ route('positions.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Positions
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['roles.index', 'roles.create', 'roles.edit'])) bg-secondary @endif" href="{{ route('roles.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Roles
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('permissions.index')) bg-secondary @endif" href="{{ route('permissions.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Permissions
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('users.index')) bg-secondary @endif" href="{{ route('users.index') }}">
+                        <i class="bi bi-gear"></i>
+                        User Management
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['departments.index', 'departments.edit', 'departments.create'])) bg-secondary @endif" href="{{ route('departments.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Departments
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('tax-configurations.index')) bg-secondary @endif" href="{{ route('tax-configurations.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Tax Configurations
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['general-settings.index', 'general-settings.index'])) bg-secondary @endif" href="{{ route('general-settings.index') }}">
+                        <i class="bi bi-gear"></i>
+                        General Settings
+                    </a>
+                </li>
             </ul>
+            
         @endif
 
         <h6
