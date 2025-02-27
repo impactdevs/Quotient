@@ -87,10 +87,10 @@
                         <th scope="col">Last Name</th>
                         <th scope="col">Position</th>
                         <th scope="col">Department</th>
-                        <th scope="col">Phone Number</th>
+                        {{-- <th scope="col">Phone Number</th> --}}
                         <th scope="col">Date of Entry</th>
                         <th scope="col">Contract Expiry</th>
-                        <th class="col">No. of Years to Retirement</th>
+                        {{-- <th class="col">No. of Years to Retirement</th> --}}
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -107,11 +107,11 @@
                             <td>{{ $employee->last_name }}</td>
                             <td>{{ optional($employee->position)->position_name ?? 'N/A' }}</td>
                             <td>{{ optional($employee->department)->department_name }}</td>
-                            <td>{{ $employee->phone_number }}</td>
+                            {{-- <td>{{ $employee->phone_number }}</td> --}}
                             <td>{{ $employee->date_of_entry ? $employee->date_of_entry->format('Y-m-d') : 'N/A' }}</td>
                             <td>{{ $employee->contract_expiry_date ? $employee->contract_expiry_date->format('Y-m-d') : 'N/A' }}
                             </td>
-                            <td>{{ $employee->retirementYearsRemaining() }}</td>
+                            {{-- <td>{{ $employee->retirementYearsRemaining() }}</td> --}}
                             <td class="align-middle">
                                 <div class="dropdown">
                                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
