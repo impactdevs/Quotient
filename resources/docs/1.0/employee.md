@@ -12,7 +12,7 @@
    - 4.2 [Default Access Levels by Role](#default-access-levels-by-role)  
 
 ---
-
+<a name="overview"></a>
 ## Overview  
 The **Employee Management Module** enables enterprises to efficiently manage employee records, permissions, and access controls. Key features include:  
 - Storing comprehensive employee profiles.  
@@ -20,7 +20,7 @@ The **Employee Management Module** enables enterprises to efficiently manage emp
 - Streamlining onboarding with automated credentials.  
 
 ---
-
+<a name="employee-attributes"></a>
 ## Employee Attributes  
 Employee profiles include the following fields, categorized for clarity:  
 
@@ -56,7 +56,7 @@ Employee profiles include the following fields, categorized for clarity:
 - User ID (auto-generated)  
 
 ---
-
+<a name="viewing-and-managing-employees"></a>
 ## Viewing and Managing Employees  
 
 ### Employee Table Interface  
@@ -84,6 +84,8 @@ Employee profiles include the following fields, categorized for clarity:
 
 ---
 
+<a name="post-creation-steps-for-employees"></a>
+
 ### Post-Creation Steps for Employees  
 **Employees must reset their password after first login**:  
 1. Log in to Quotient using the provided credentials.  
@@ -95,6 +97,7 @@ Employee profiles include the following fields, categorized for clarity:
 5. Click **Create**.  
 
 ---
+<a name="permissions--role-based-access"></a>
 
 ## Permissions & Role-Based Access  
 
@@ -109,11 +112,12 @@ Employee profiles include the following fields, categorized for clarity:
 4. Click **Update Role** to save changes.  
 
 ---
+<a name="default-access-levels-by-role"></a>
 
 ### Default Access Levels by Role  
 | Role                          | Access Scope                                  |  
 |-------------------------------|----------------------------------------------|  
-| **HR**                        | View/edit all employees                      |  
+| **HR**                        | View/edit/delete all employees                      |  
 | **Head of Division**          | View employees in their division only        |  
 | **Executive Secretary**       | View all employees                           |  
 | **Staff**                     | View only their own profile                  |  
@@ -122,6 +126,5 @@ Employee profiles include the following fields, categorized for clarity:
 ---
 
 ## Important Notes  
-- 🔐 **Security**: Admins/HR can reset passwords via the "User Management" module.  
 - 📁 **Documents**: Upload contract copies and national IDs in PDF/JPEG/PNG format.  
 - ⚠️ **Data Integrity**: Deleting an employee removes all associated records. Use with caution.  
