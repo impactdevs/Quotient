@@ -37,6 +37,13 @@
       0 => 'BinaryTorch\\LaRecipe\\LaRecipeServiceProvider',
     ),
   ),
+  'davmixcool/laravel-meta-manager' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Davmixcool\\MetaManager\\MetaServiceProvider',
+    ),
+  ),
   'hotwired-laravel/turbo-laravel' => 
   array (
     'providers' => 

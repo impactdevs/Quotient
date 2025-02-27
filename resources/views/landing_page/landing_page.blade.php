@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Quotient</title>
     <meta name="description" content="Quotient HR system.">
+    @include('meta::manager')
     <meta name="keywords"
         content="quotient, hr system, leave management, impact outsourcing, human resource management system, expense management system">
 
