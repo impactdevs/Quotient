@@ -152,7 +152,7 @@ return [
     | Here you may provide keywords relevant to your website and the specific page.
     |
     */
-	'keywords' => 'Humana Resource Management System, HRMS, HR, Human Resource, Management, Software, Enterprise, Impact Outsourcing Uganda, Quotient Africa',
+	'keywords' => 'Humana Resource Management System, HRMS, HR, Human Resource, Management, Software, Enterprise, Impact Outsourcing Uganda, Quotient Africa, HRMS, employee management, leave management, payroll management, expense tracking, HR software'
 
 
 ];
