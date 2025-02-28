@@ -163,9 +163,13 @@
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-activity icon"></i></div>
                             <h4><a href="{{ url('/service-details-appraisals') }}"
-                                    class="stretched-link">Appraisals</a></h4>
-                            <p>Appraisals offer a structured approach to evaluating employee performance, helping
-                                organizations recognize and reward productivity. </p>
+                                    class="stretched-link">Expenses</a></h4>
+                            <p>
+                                Quotient simplifies the process of managing employee expenses, from submission to approval
+                                and reimbursement. Employees can easily submit expense claims through the system, attaching
+                                receipts and other supporting documents for verification. Managers can review and approve
+                                these claims quickly, ensuring timely reimbursement and accurate record-keeping. With
+                                 </p>
 
                         </div>
                     </div><!-- End Service Item -->
@@ -174,24 +178,13 @@
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-airplane icon"></i></div>
                             <h4><a href="{{ url('/service-details-training') }}"
-                                    class="stretched-link">Trainings/Travel</a></h4>
-                            <p>Quotient empowers your employees to seamlessly apply for trainings or travel, whether
-                                they are working onsite or from home. Department heads and HR officers can efficiently
-                                review and approve these requests, ensuring a smooth and streamlined process for
-                                professional development and business travel management. </p>
+                                    class="stretched-link">Payroll</a></h4>
+                            <p>
+                                Quotient simplifies the process of managing employee payroll, from calculating taxes like PAYE  to NSSF and other statutory deductions. Employees can easily view their payslips and tax information through the system, fostering transparency and trust. HR officers and managers gain a clear overview of payroll expenses, ensuring accurate and timely payments. With a well-organized and accessible payroll system, Quotient helps streamline workflows and avoid errors caused by manual calculations or outdated processes.
+                                 </p>
 
                         </div>
 
-                    </div><!-- End Service Item -->
-
-                    <div class="col-xl-3 col-md-6 d-flex" data-aos-delay="300">
-                        <div class="service-item position-relative">
-                            <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-                            <h4><a href="{{ url('/service-details-leave-schedule') }}" class="stretched-link">Leave
-                                    Schedule</a></h4>
-                            <p>Effective leave scheduling is essential for maintaining a balanced workflow and ensuring
-                                adequate staff availability. </p>
-                        </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos-delay="400">
@@ -223,8 +216,10 @@
                             <div class="service-item position-relative">
                                 <div class="icon"><i class="bi bi-card-checklist icon"></i></div>
                                 <h4><a href="#" class="stretched-link">Attendances</a></h4>
-                                <p>Provides a roaster of all those employees who are available for company events and
-                                    trainings through out the year. </p>
+                                <p>Quotient has a biomentric device which captures daily employee attendance and
+                                    generates a report on the number of hours worked by each employee. This helps in
+                                    tracking employee performance and productivity.
+                                     </p>
 
                             </div>
 
@@ -235,7 +230,7 @@
                                 <div class="icon"><i class="bi bi-calendar2-event icon"></i></div>
                                 <h4><a href="#" class="stretched-link">Events</a></h4>
                                 <p>Provides a efficient way to create and manage company events led by the company
-                                    throughout the year.</p>
+                                    throughout the year. Employees receive notifications on the emial and Quotient itself.</p>
                             </div>
                         </div><!-- End Service Item -->
 
@@ -243,31 +238,16 @@
                             <div class="service-item position-relative">
                                 <div class="icon"><i class="bi bi-person-workspace icon"></i></div>
                                 <h4><a href="#" class="stretched-link">Employees</a></h4>
-                                <p>Collects information on the company employees available and the status of their leave
-                                    days.</p>
+                                <p>
+                                    Quotient provides a centralized hub for managing employee information, from personal
+                                    details and contact information to job roles and performance reviews. HR officers can
+                                    easily access and update employee records, ensuring that information is accurate and
+                                    up-to-date. Employees can view their profiles and submit requests for changes, fostering
+                                    transparency and trust. With a well-organized and accessible employee database, Quotient
+                                    helps streamline workflows and avoid errors caused by outdated or incomplete information.
+                                </p>
                             </div>
                         </div><!-- End Service Item -->
-
-
-                        <div class="col-xl-3 col-md-6 d-flex" data-aos-delay="300">
-                            <div class="service-item position-relative">
-                                <div class="icon"><i class="bi bi-person-vcard icon"></i></div>
-                                <h4><a href="#" class="stretched-link">Stuff Recruitment</a></h4>
-                                <p>Provides an effective strategy for recruitment new talent to the company by
-                                    identifying available vacancy and departments in need of improvement. </p>
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div class="col-xl-3 col-md-6 d-flex" data-aos-delay="400">
-                            <div class="service-item position-relative">
-                                <div class="icon"><i class="bi bi-file-earmark-arrow-up icon"></i></div>
-                                <h4><a href="{{ url('/service-details-applications') }}"
-                                        class="stretched-link">Applications</a></h4>
-                                <p>Quotient streamlines the recruitment process by centralizing job applications in one
-                                    easy-to-manage hub. </p>
-                            </div>
-                        </div><!-- End Service Item -->
-
 
                     </div>
                 </div>
