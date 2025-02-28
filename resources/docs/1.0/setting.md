@@ -11,6 +11,7 @@
 - [Configuring Departments](#departments)
 - [Adding Tax Configurations](#tax-configurations)
 - [Adding General Settings](#general-settings)
+- [Adding Public Holidays](#public-holidays)
 
 <a name="setting-intro"></a>
 
@@ -52,6 +53,9 @@ System configuration is the heart of Quotient. It's where you define essential e
 
 ##### Removing and Editing a leave type
 In the [Leave types](#leave-types), click 4 and the leave type will be deleted permanently. To adit a leave type, click 3 and you will be presented with an editable form field where you can update the leave type.
+
+##### Adding Public holidays  
+Under Settings sections, click Public holiday menu item, you should see a list of system public holidays and you can add new ones, edit them, or even remove some of them.  
 
 
 

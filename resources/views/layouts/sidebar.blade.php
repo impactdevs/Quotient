@@ -140,9 +140,17 @@
                         Tax Configurations
                     </a>
                 </li>
+
+                            
+                <li class="nav-item">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['public_holidays.index', 'public_holidays.edit','public_holidays.create'])) bg-secondary @endif" href="{{ route('public_holidays.index') }}">
+                        <i class="bi bi-gear"></i>
+                        Public holidays
+                    </a>
+                </li>
             
                 <li class="nav-item">
-                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['general-settings.index', 'general-settings.index'])) bg-secondary @endif" href="{{ route('general-settings.index') }}">
+                    <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['general-settings.index', 'general-settings.edit'])) bg-secondary @endif" href="{{ route('general-settings.index') }}">
                         <i class="bi bi-gear"></i>
                         General Settings
                     </a>

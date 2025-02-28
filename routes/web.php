@@ -24,6 +24,7 @@ use App\Exports\PayrollExport;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\GeneralSettingsController;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\PublicHolidayController;
 
 Route::get('/', function () {
     return redirect()->route('landing');
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('events', EventController::class);
     Route::resource('expenses', ExpenseController::class);
+
+    Route::resource('public_holidays', PublicHolidayController::class);
 
     Route::resource('positions', PositionController::class);
     Route::resource('attendances', AttendanceController::class);
