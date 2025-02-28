@@ -48,9 +48,6 @@
 
                 <!-- Search and Filters -->
                 <div class="row g-3 mb-4">
-                    <div class="col-12 col-md-4">
-                        <input type="text" class="form-control" placeholder="Search expenses...">
-                    </div>
                     <div class="col-6 col-md-3">
                         <select class="form-select">
                             <option>Filter by Status</option>

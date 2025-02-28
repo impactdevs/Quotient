@@ -41,10 +41,12 @@
     37 => 'Termwind\\Laravel\\TermwindServiceProvider',
     38 => 'OwenIt\\Auditing\\AuditingServiceProvider',
     39 => 'Pest\\Laravel\\PestServiceProvider',
-    40 => 'Spatie\\Permission\\PermissionServiceProvider',
-    41 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
-    42 => 'Spatie\\Sitemap\\SitemapServiceProvider',
-    43 => 'App\\Providers\\AppServiceProvider',
+    40 => 'RalphJSmit\\Helpers\\HelpersServiceProvider',
+    41 => 'RalphJSmit\\Laravel\\SEO\\LaravelSEOServiceProvider',
+    42 => 'Spatie\\Permission\\PermissionServiceProvider',
+    43 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
+    44 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    45 => 'App\\Providers\\AppServiceProvider',
   ),
   'eager' => 
   array (
@@ -70,10 +72,12 @@
     19 => 'Termwind\\Laravel\\TermwindServiceProvider',
     20 => 'OwenIt\\Auditing\\AuditingServiceProvider',
     21 => 'Pest\\Laravel\\PestServiceProvider',
-    22 => 'Spatie\\Permission\\PermissionServiceProvider',
-    23 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
-    24 => 'Spatie\\Sitemap\\SitemapServiceProvider',
-    25 => 'App\\Providers\\AppServiceProvider',
+    22 => 'RalphJSmit\\Helpers\\HelpersServiceProvider',
+    23 => 'RalphJSmit\\Laravel\\SEO\\LaravelSEOServiceProvider',
+    24 => 'Spatie\\Permission\\PermissionServiceProvider',
+    25 => 'Spatie\\QueryBuilder\\QueryBuilderServiceProvider',
+    26 => 'Spatie\\Sitemap\\SitemapServiceProvider',
+    27 => 'App\\Providers\\AppServiceProvider',
   ),
   'deferred' => 
   array (

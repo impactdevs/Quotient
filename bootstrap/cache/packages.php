@@ -146,6 +146,28 @@
       0 => 'Pest\\Laravel\\PestServiceProvider',
     ),
   ),
+  'ralphjsmit/laravel-helpers' => 
+  array (
+    'aliases' => 
+    array (
+      'Helpers' => 'RalphJSmit\\Helpers\\Facades\\Helpers',
+    ),
+    'providers' => 
+    array (
+      0 => 'RalphJSmit\\Helpers\\HelpersServiceProvider',
+    ),
+  ),
+  'ralphjsmit/laravel-seo' => 
+  array (
+    'aliases' => 
+    array (
+      'SEOManager' => 'RalphJSmit\\Laravel\\SEO\\Facades\\SEOManager',
+    ),
+    'providers' => 
+    array (
+      0 => 'RalphJSmit\\Laravel\\SEO\\LaravelSEOServiceProvider',
+    ),
+  ),
   'spatie/laravel-permission' => 
   array (
     'providers' => 
