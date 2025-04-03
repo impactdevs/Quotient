@@ -100,4 +100,9 @@ Route::middleware('auth')->group(function () {
     })->name('pay-roll.export');
 });
 
+Route::get('/test-concurrency', function () {
+    // Optional: Add database query or processing logic here
+    return response()->json(['status' => 'success']);
+});
+
 require __DIR__ . '/auth.php';
