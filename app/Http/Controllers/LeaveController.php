@@ -124,7 +124,8 @@ class LeaveController extends Controller
      */
     public function show(Leave $leaf)
     {
-        return view('leaves.show', compact('leaf'));
+        $users = User::all();
+        return view('leaves.show', compact('leaf', 'users'));
     }
 
     /**
