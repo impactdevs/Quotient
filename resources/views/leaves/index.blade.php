@@ -908,6 +908,11 @@
                             position: "right",
                             backgroundColor: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,14,9,1) 35%, rgba(0,212,255,1) 100%)",
                         }).showToast();
+
+                        setTimeout(function() {
+                            location.reload();
+                        }, 3000);
+
                     },
                     error: function(xhr) {
                         Toastify({
