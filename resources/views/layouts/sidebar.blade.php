@@ -1,12 +1,12 @@
-<div class="sidebar bg-primary border-start border-start-5 shadow rounded-start-5 border-dashed"
+<div class="border-dashed shadow sidebar bg-primary border-start border-start-5 rounded-start-5"
     style="position: sticky; top: 0; height: 100vh; overflow-y: auto;">
     <div class="border-bottom border-bottom-5 h-25 d-flex align-items-center justify-content-center">
         <img src="{{ asset('assets/img/quotient.png') }}" alt="company logo"
-            class="object-fit-contain border rounded img-fluid" style="max-width: 100%; height: auto;">
+            class="border rounded object-fit-contain img-fluid" style="max-width: 100%; height: auto;">
     </div>
-    <div class="d-md-flex flex-column p-0 pt-lg-3">
+    <div class="p-0 d-md-flex flex-column pt-lg-3">
         <h6
-        class="text-uppercase px-3 text-body-secondary text-light d-flex justify-content-between align-items-center my-3">
+        class="px-3 my-3 text-uppercase text-body-secondary text-light d-flex justify-content-between align-items-center">
         <span class="text-light">GENERAL</span>
         <i class="bi bi-bar-chart text-light"></i>
     </h6>
@@ -86,11 +86,11 @@
         </ul>
         @if (auth()->user()->hasRole('HR'))
             <h6
-                class="text-uppercase px-3 text-body-secondary text-light d-flex justify-content-between align-items-center my-3">
+                class="px-3 my-3 text-uppercase text-body-secondary text-light d-flex justify-content-between align-items-center">
                 <span class="text-light">Settings</span>
                 <i class="bi bi-gear text-light"></i>
             </h6>
-            <ul class="nav flex-column mb-auto">
+            <ul class="mb-auto nav flex-column">
 
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['leave-types.index', 'leave-types.create', 'leave-types.edit'])) bg-secondary @endif" href="{{ route('leave-types.index') }}">
@@ -160,7 +160,7 @@
         @endif
 
         <h6
-            class="text-uppercase px-3 text-body-secondary text-light d-flex justify-content-between align-items-center my-3">
+            class="px-3 my-3 text-uppercase text-body-secondary text-light d-flex justify-content-between align-items-center">
             <span class="text-light">Documentation</span>
             <i class="bi bi-gear text-light"></i>
         </h6>

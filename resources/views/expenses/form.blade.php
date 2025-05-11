@@ -29,21 +29,21 @@
         <label for="usertokenfield" class="form-label">Users</label>
         <input type="text" class="form-control" id="usertokenfield" />
         <input type="hidden" name="category[users]" id="user_ids"
-            value="{{ old('category.users', isset($event) ? (isset($event->category['users']) ? $event->category['users'] : 'All') : 'All') }}" />
+            value="{{ old('category.users', isset($expense) ? (isset($expense->category['users']) ? $expense->category['users'] : 'All') : 'All') }}" />
     </div>
 
     <div class="mb-3 col">
         <label for="departmenttokenfield" class="form-label">Departments</label>
         <input type="text" class="form-control" id="departmenttokenfield" />
         <input type="hidden" name="category[departments]" id="department_ids"
-            value="{{ old('category.departments', isset($event) ? (isset($event->category['departments']) ? $event->category['departments'] : '') : '') }}" />
+            value="{{ old('category.departments', isset($expense) ? (isset($expense->category['departments']) ? $expense->category['departments'] : '') : '') }}" />
     </div>
 
     <div class="mb-3 col">
         <label for="positiontokenfield" class="form-label">Positions</label>
         <input type="text" class="form-control" id="positiontokenfield" />
         <input type="hidden" name="category[positions]" id="position_ids"
-            value="{{ old('category.positions', isset($event) ? (isset($event->category['positions']) ? $event->category['positions'] : '') : '') }}" />
+            value="{{ old('category.positions', isset($expense) ? (isset($expense->category['positions']) ? $expense->category['positions'] : '') : '') }}" />
     </div>
 </div>
 
