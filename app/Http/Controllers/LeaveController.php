@@ -40,7 +40,7 @@ class LeaveController extends Controller
         //current year
         $currentYear = Carbon::now()->year;
         $employee = Employee::where('user_id', $user)->first();
-        $totalLeaveDaysAllocated = $employee->totalLeaveRosterDays();
+        $totalLeaveDaysAllocated = optional($employee)->totalLeaveRosterDays();
         $useDays = $employee->totalLeaveDays();
         //departments
         $departments = Department::pluck('department_name', 'department_id')->toArray();
