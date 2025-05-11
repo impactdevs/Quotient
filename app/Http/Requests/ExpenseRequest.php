@@ -37,7 +37,7 @@ class ExpenseRequest extends FormRequest
         return [
             'expense_type.required' => 'The expense category is required.',
             'amount.required' => 'The amount is required.',
-            'date.before_or_equal' => 'The date must be be or equal to the today.',
+            'date.before_or_equal' => 'The date must be before or equal to the today.',
             'description.required' => 'The expense description is required.',
             'receipt_path.file' => 'The receipt should be a valid file.',
             'category.json' => 'The category must be a valid JSON string.',

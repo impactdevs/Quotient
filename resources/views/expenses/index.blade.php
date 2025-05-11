@@ -1,16 +1,16 @@
 <x-app-layout>
     <div class="mt-3">
         <!-- Summary Cards -->
-        <div class="row mb-4 g-4">
+        <div class="mb-4 row g-4">
             <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card shadow-sm border-0">
+                <div class="border-0 shadow-sm card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="mb-1 text-secondary">Total Expenses</h6>
                                 <h3 class="mb-0">{{ Number::currency($totalExpenses) }}</h3>
                             </div>
-                            <div class="bg-primary text-white p-3 rounded-circle">
+                            <div class="p-3 text-white bg-primary rounded-circle">
                                 <i class="bi bi-cash-stack fs-4"></i>
                             </div>
                         </div>
@@ -18,14 +18,14 @@
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card shadow-sm border-0">
+                <div class="border-0 shadow-sm card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <h6 class="mb-1 text-secondary">Avg. per Expense</h6>
                                 <h3 class="mb-0">{{ Number::currency($averageExpense) }}</h3>
                             </div>
-                            <div class="bg-info text-white p-3 rounded-circle">
+                            <div class="p-3 text-white bg-info rounded-circle">
                                 <i class="bi bi-graph-up fs-4"></i>
                             </div>
                         </div>
@@ -35,10 +35,10 @@
             <!-- Add more summary cards as needed -->
         </div>
 
-        <div class="card shadow-sm border-0">
+        <div class="border-0 shadow-sm card">
             <div class="card-body">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
-                    <h5 class="card-title mb-3 mb-md-0">Expense Records</h5>
+                <div class="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                    <h5 class="mb-3 card-title mb-md-0">Expense Records</h5>
                     @can('can add an event')
                         <a href="{{ route('expenses.create') }}" class="btn btn-primary">
                             <i class="bi bi-plus-lg me-2"></i>Add New Expense
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Search and Filters -->
-                <div class="row g-3 mb-4">
+                <div class="mb-4 row g-3">
                     <div class="col-6 col-md-3">
                         <select class="form-select">
                             <option>Filter by Status</option>
@@ -64,7 +64,7 @@
 
                 <!-- Enhanced Table -->
                 <div class="table-responsive rounded-3">
-                    <table class="table table-hover align-middle mb-0">
+                    <table class="table mb-0 align-middle table-hover">
                         <thead class="bg-light">
                             <tr>
                                 <th scope="col" class="ps-4">#</th>
@@ -87,7 +87,7 @@
                                             <div class="avatar-sm me-2">
                                                 <!-- Add employee avatar if available -->
                                                 <span class="avatar-title bg-secondary rounded-circle">
-                                                    {{ substr($expense->user->employee->first_name, 0, 1) }}
+                                                    {{ substr(optional($expense->user->employee)->first_name, 0, 1) }}
                                                 </span>
                                             </div>
                                             <div>
@@ -116,7 +116,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                        <div class="d-flex gap-2 flex-wrap">
+                                        <div class="flex-wrap gap-2 d-flex">
                                             <!-- Your existing badge code with improved styling -->
                                             @php
                                                 // Assume training_category contains comma-separated IDs for each category
@@ -185,7 +185,7 @@
                             @empty
                                 <tr>
                                     <td colspan="9">
-                                        <div class="text-center py-5">
+                                        <div class="py-5 text-center">
                                             <i class="bi bi-file-earmark-excel fs-1 text-muted"></i>
                                             <h5 class="mt-3">No expenses found</h5>
                                             <p class="text-muted">Start by adding a new expense record</p>
@@ -198,7 +198,7 @@
                 </div>
 
                 <!-- Enhanced Pagination -->
-                <div class="d-flex justify-content-between align-items-center mt-4">
+                <div class="mt-4 d-flex justify-content-between align-items-center">
                     <div class="text-muted">
                         Showing {{ $expenses->firstItem() }} - {{ $expenses->lastItem() }} of
                         {{ $expenses->total() }} entries

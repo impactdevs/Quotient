@@ -42,7 +42,7 @@ class ExpenseController extends Controller
      * Show the form for creating a new expense.
      */
     public function create()
-    {        
+    {
         $positions = Position::pluck('position_name', 'position_id')->toArray();
         $departments = Department::pluck('department_name', 'department_id')->toArray();
         $users_without_all = User::pluck('name', 'id')->toArray();
@@ -56,7 +56,7 @@ class ExpenseController extends Controller
 
     public function store(ExpenseRequest $request)
     {
-    
+
         try {
             $validated = $request->validated();
 
@@ -64,7 +64,7 @@ class ExpenseController extends Controller
             // Store the receipt and get the path
             $receiptPath = $request->file('receipt_path')->store('receipts', 'public');
             }
-            
+
             // Create the expense record
             $expense = Expense::create([
                 'user_id' => Auth()->user()->id,
@@ -76,18 +76,18 @@ class ExpenseController extends Controller
                 'category' => $validated['category'],
                 'status' => 'pending',  // default status
             ]);
-    
+
 
             // Return success message and redirect to the expense details page
             return redirect()->route('expenses.show', $expense)->with('success', 'Expense submitted successfully!');
         } catch (\Exception $e) {
             // Log the error and show an error message to the user
             Log::error('Error storing expense: ' . $e->getMessage());
-    
+
             return redirect()->back()->with('error', 'There was an error submitting your expense. Please try again later.');
         }
     }
-    
+
     /**
      * Display a single expense (with authorization check).
      */

@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use App\Models\Scopes\ExpenseScope;
 
+#[ScopedBy([ExpenseScope::class])]
 class Expense extends Model
 {
     protected $fillable = [
