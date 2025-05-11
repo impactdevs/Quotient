@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="mt-3">
-        <div class="d-flex flex-row flex-1 justify-content-between mb-3">
+        <div class="flex-row flex-1 mb-3 d-flex justify-content-between">
             <form action="{{ route('attendances.index') }}" method="GET" class="d-flex align-items-center">
                 <input type="date" name="filter_date" class="form-control"
                     value="{{ request('filter_date', now()->format('Y-m-d')) }}">

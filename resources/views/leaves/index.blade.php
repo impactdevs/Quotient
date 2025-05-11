@@ -1,6 +1,6 @@
 <x-app-layout>
-    <section class="section dashboard m-2">
-        <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    <section class="m-2 section dashboard">
+        <div class="top-0 p-3 toast-container position-fixed start-50 translate-middle-x">
             <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true"
                 data-bs-autohide="false"> <!-- Disable auto-hide on parent -->
                 <div class="toast-header">
@@ -39,12 +39,12 @@
             <!-- Left side columns -->
             <div class="col-lg-8">
                 {{-- Filters --}}
-                <div class="d-flex align-items-center mb-3 justify-between">
+                <div class="justify-between mb-3 d-flex align-items-center">
                     @if (auth()->user()->isAdminOrSecretary())
                         <div class="d-flex">
                             {{-- Department Filter --}}
                             <div class="ms-3">
-                                <select class="form-select form-select-sm rounded" id="departmentSelect"
+                                <select class="rounded form-select form-select-sm" id="departmentSelect"
                                     style="max-width: 180px;" name="department">
                                     <option value="all">All Departments</option>
                                     @foreach ($departments as $department_id => $department)
@@ -57,7 +57,7 @@
                     @endif
                 </div>
                 <div class="col-12">
-                    <div class="card recent-sales overflow-auto vh-100">
+                    <div class="overflow-auto card recent-sales vh-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h5 class="card-title">
@@ -65,7 +65,7 @@
                                 </h5>
                                 {{-- check if role is HR and dont show the button --}}
                                 @if (!auth()->user()->hasRole('HR'))
-                                    <a class="btn btn-primary btn-sm ms-auto px-3 py-1"
+                                    <a class="px-3 py-1 btn btn-primary btn-sm ms-auto"
                                         href="{{ route('leaves.create') }}" style="font-size: 14px;">
                                         <i class="bi bi-plus" style="font-size: 12px;"></i> Apply
                                     </a>
@@ -102,7 +102,7 @@
                 <div class="row">
                     <!-- Recent Sales -->
                     <div class="col-12">
-                        <div class="card recent-sales overflow-auto">
+                        <div class="overflow-auto card recent-sales">
                             <div class="card-body">
                                 <div class="p-3">
                                     <p class="fs-1 text-primary title">
@@ -176,17 +176,17 @@
                 <h6 class="text-muted">Roster Details</h6>
 
                 <!-- Start and End Dates -->
-                <div class="d-flex justify-content-between mb-2">
+                <div class="mb-2 d-flex justify-content-between">
                     <strong class="text-secondary">Start Date:</strong>
                     <span id="eventStartDate" class="text-dark">2024-12-01 10:00 AM</span>
                 </div>
-                <div class="d-flex justify-content-between mb-3">
+                <div class="mb-3 d-flex justify-content-between">
                     <strong class="text-secondary">End Date:</strong>
                     <span id="eventEndDate" class="text-dark">2024-12-05 05:00 PM</span>
                 </div>
 
                 <!-- Staff Info -->
-                <div class="d-flex justify-content-between mb-2">
+                <div class="mb-2 d-flex justify-content-between">
                     <strong class="text-secondary">Staff:</strong>
                     <span id="eventStaffName" class="text-dark">John Doe</span>
                 </div>
@@ -198,7 +198,7 @@
             </div>
 
             <!-- Hint Section -->
-            <div class="text-muted mt-5 border-top pt-3">
+            <div class="pt-3 mt-5 text-muted border-top">
                 <p class="mb-1">To apply for leave, click the <i class="bi bi-pencil"></i> icon on the top right
                     corner of this card.</p>
             </div>
@@ -237,7 +237,7 @@
                 var totalLeaveDaysScheduled = @json(auth()->user()->employee->overallRosterDays());
                 var balanceToSchedule = totalLeaveDaysEntitled - totalLeaveDaysScheduled;
                 var percentageUsed = Math.min((totalLeaveDaysScheduled / totalLeaveDaysEntitled) * 100, 100);
-                var canApproveLeave = @json(auth()->user()->can('approve-leave'));
+                var canApproveLeave = @json(auth()->user()->can('approve leave'));
                 //get all the roles in the system
                 var roles = @json($roles);
 
@@ -382,7 +382,7 @@
 
                                                     // Initialize the status div
                                                     let statusDiv =
-                                                        '<div class="status mt-2">';
+                                                        '<div class="mt-2 status">';
 
                                                     // Check if there is a leave request status
                                                     if (row[5] && row[5]
@@ -476,7 +476,7 @@
                                                             ) {
                                                                 statusDiv
                                                                     += `
-                <div class="d-flex align-items-center mb-2">
+                <div class="mb-2 d-flex align-items-center">
                     <i class="bi bi-check-circle-fill text-success me-2"></i>
                     <span class="fw-semibold text-success">${role}: Approved</span>
                 </div>`;
@@ -486,7 +486,7 @@
                                                             ) {
                                                                 statusDiv
                                                                     += `
-                <div class="d-flex align-items-center mb-2">
+                <div class="mb-2 d-flex align-items-center">
                     <i class="bi bi-x-circle-fill text-danger me-2"></i>
                     <span class="fw-semibold text-danger">${role}: Rejected</span>
                 </div>`;
@@ -499,7 +499,7 @@
                                                                 // Handle both `null` and missing roles as "Pending"
                                                                 statusDiv
                                                                     += `
-                <div class="d-flex align-items-center mb-2">
+                <div class="mb-2 d-flex align-items-center">
                     <i class="bi bi-hourglass-split text-warning me-2"></i>
                     <span class="fw-semibold text-warning">${role}: Pending</span>
                 </div>`;
@@ -582,7 +582,7 @@
                                         if (event.leave.length == 0) {
                                             row[4] = `
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center gap-1" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="gap-1 btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <i class="bi bi-three-dots-vertical"></i> Actions
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -599,7 +599,7 @@
                                             if (canApproveLeave) {
                                                 row[4] = `
                                                     <div class="dropdown">
-                                                        <button class="btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center gap-1" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="gap-1 btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <i class="bi bi-three-dots-vertical"></i> Actions
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -624,7 +624,7 @@
                                             } else {
                                                 row[4] = `
                                                 <div class="dropdown">
-                                                        <button class="btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center gap-1" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button class="gap-1 btn btn-secondary btn-sm dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <i class="bi bi-three-dots-vertical"></i> Actions
                                                         </button>
                                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

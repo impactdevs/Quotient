@@ -98,42 +98,42 @@
                         Leave types
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['positions.index', 'positions.create', 'positions.edit'])) bg-secondary @endif" href="{{ route('positions.index') }}">
                         <i class="bi bi-gear"></i>
                         Positions
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['roles.index', 'roles.create', 'roles.edit'])) bg-secondary @endif" href="{{ route('roles.index') }}">
                         <i class="bi bi-gear"></i>
                         Roles
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('permissions.index')) bg-secondary @endif" href="{{ route('permissions.index') }}">
                         <i class="bi bi-gear"></i>
                         Permissions
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('users.index')) bg-secondary @endif" href="{{ route('users.index') }}">
                         <i class="bi bi-gear"></i>
                         User Management
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['departments.index', 'departments.edit', 'departments.create'])) bg-secondary @endif" href="{{ route('departments.index') }}">
                         <i class="bi bi-gear"></i>
                         Departments
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs('tax-configurations.index')) bg-secondary @endif" href="{{ route('tax-configurations.index') }}">
                         <i class="bi bi-gear"></i>
@@ -141,14 +141,14 @@
                     </a>
                 </li>
 
-                            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['public_holidays.index', 'public_holidays.edit','public_holidays.create'])) bg-secondary @endif" href="{{ route('public_holidays.index') }}">
                         <i class="bi bi-gear"></i>
                         Public holidays
                     </a>
                 </li>
-            
+
                 <li class="nav-item">
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-6 fw-bold @if (request()->routeIs(['general-settings.index', 'general-settings.edit'])) bg-secondary @endif" href="{{ route('general-settings.index') }}">
                         <i class="bi bi-gear"></i>
@@ -156,7 +156,7 @@
                     </a>
                 </li>
             </ul>
-            
+
         @endif
 
         <h6

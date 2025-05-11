@@ -34,16 +34,20 @@
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.2/dist/bootstrap-table.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <!-- Custom styles for this template -->
     @vite(['resources/css/app.css', 'resources/css/fullcalendarcss.css', 'resources/js/app.js', 'resources/js/custom-js.js'])
 </head>
 
 <body>
     <div class="">
-        <div class="d-flex flex-row flex-1">
+        <div class="flex-row flex-1 d-flex">
             @include('layouts.sidebar')
 
-            <main class="d-flex flex-column flex-1" id="main">
+            <main class="flex-1 d-flex flex-column" id="main">
                 @include('layouts.header')
                 {{ $slot }}
             </main>
@@ -73,6 +77,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.23.2/dist/extensions/export/bootstrap-table-export.min.js">
     </script>
     <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     @if (session()->has('success'))
         <script type="module">

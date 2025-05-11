@@ -39,6 +39,8 @@ Route::get('/service-details-applications', [HomeController::class, 'application
 Route::post('/send-email', [HomeController::class, 'send'])->name('contact.send');
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/leave-roster-tabular/data', [LeaveRosterController::class, 'getLeaveRosterData'])->name('leave-roster-tabular.data');
+
 
 Route::middleware('auth')->group(function () {
     Route::resource('roles', RoleController::class);
