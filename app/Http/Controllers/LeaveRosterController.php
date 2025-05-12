@@ -41,12 +41,27 @@ class LeaveRosterController extends Controller
         return view('leave-roster.tabular');
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $employee_id = auth()->user()->employee->employee_id;
+        //validate, the request, the start date should be less than the end date
+        $request->validate([
+            'start_date' => 'required|date|before:end_date',
+            'end_date' => 'required|date',
+            'leave_title' => 'required|string',
+            'user_id'=> 'nullable|exists:users,id'
+        ]);
+
+        if (!auth()->user()->hasRole('HR')) {
+            $user = auth()->user();
+        } else {
+            $user = User::find($request->user_id);
+        }
+
+        $employee_id = $user->employee->employee_id;
         $leaveRosterAdded = LeaveRoster::create([
             'employee_id' => $employee_id,
             'start_date' => $request->input('start_date'),
@@ -57,8 +72,9 @@ class LeaveRosterController extends Controller
         $leaveRosterAdded->load('employee');
 
         if ($leaveRosterAdded) {
-            $entitledDays = auth()->user()->employee->entitled_leave_days ?? 0;
-            $scheduledDays = auth()->user()->employee->overallRosterDays();
+            $entitledDays = $user->employee->entitled_leave_days ?? 0;
+            $scheduledDays = $user->employee->overallRosterDays();
+            $leaveRosterAdded['scheduled_days'] = $scheduledDays;
             RosterUpdate::dispatch($employee_id, $entitledDays, $scheduledDays);
             return response()->json(['success' => true, 'message' => 'Leave Roster added successfully', 'data' => $leaveRosterAdded]);
         }

@@ -49,7 +49,7 @@
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}"
                                         data-entitled="{{ $user->employee->entitled_leave_days }}"
-                                        data-scheduled="{{ $user->employee->overallRosterDays() }}">{{ $user->name }}
+                                        data-scheduled="{{ $user->employee->overallRosterDays() }}">{{ $user->employee->first_name.' '.$user->employee->last_name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -278,6 +278,8 @@
 
                             //update Leave days entitled and what has been schedlued
                             totalLeaveDaysScheduled = response.data.scheduled_days
+
+
 
                             Toastify({
                                 text: response.message,
