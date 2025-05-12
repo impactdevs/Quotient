@@ -52,8 +52,8 @@ jobs:
           script: |
             sudo chgrp -R www-data /var/www/quotient.impact-outsourcing.com/storage /var/www/quotient.impact-outsourcing.com/bootstrap/cache
             sudo chmod -R ug+rwx /var/www/quotient.impact-outsourcing.com/storage /var/www/quotient.impact-outsourcing.com/bootstrap/cache
-            # set right permissions for images directory in public, make sure its readable and writable
 
+      # set right permissions for images directory in public, make sure its readable and writable
       - name: Set proper permissions for images directory
         uses: appleboy/ssh-action@master
         with:
