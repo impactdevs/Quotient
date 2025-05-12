@@ -138,11 +138,15 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ asset('storage/' . $expense->receipt_path) }}"
-                                            class="btn btn-icon btn-sm btn-outline-secondary" data-bs-toggle="tooltip"
-                                            title="Download Receipt">
-                                            <i class="bi bi-download"></i>
-                                        </a>
+                                        @if ($expense->receipt_path)
+                                            <a href="{{ asset('storage/' . $expense->receipt_path) }}"
+                                                class="btn btn-icon btn-sm btn-outline-secondary"
+                                                data-bs-toggle="tooltip" title="Download Receipt">
+                                                <i class="bi bi-download"></i>
+                                            </a>
+                                        @else
+                                            <span>No receipt</span>
+                                        @endif
                                     </td>
                                     <td class="text-end pe-4">
                                         <div class="dropdown">
