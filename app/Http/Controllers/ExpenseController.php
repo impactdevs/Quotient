@@ -21,8 +21,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $totalExpenses=Expense::sum('amount');
-        $averageExpense=Expense::average('amount');
+        // Ensure numeric values with null coalescing to 0
+        $totalExpenses = Expense::sum('amount') ?? 0;
+        $averageExpense = Expense::average('amount') ?? 0;
         $positions = Position::pluck('position_name', 'position_id')->toArray();
         $departments = Department::pluck('department_name', 'department_id')->toArray();
         $users = User::pluck('name', 'id')->toArray() ?? [];
@@ -50,7 +51,7 @@ class ExpenseController extends Controller
         $users = array_merge($allUsersOption, $users_without_all);
         //sort users to start with 'All'
         $options = array_merge($positions, $departments, $users);
-        $expenses = ['Transport'=>'Transport', 'Airtime'=>'Airtime'];
+        $expenses = ['Transport' => 'Transport', 'Airtime' => 'Airtime'];
         return view('expenses.create', compact('expenses', 'users', 'positions', 'departments'));
     }
 
@@ -61,8 +62,8 @@ class ExpenseController extends Controller
             $validated = $request->validated();
 
             if ($request->hasFile('receipt_path') && $request->file('receipt_path')->isValid()) {
-            // Store the receipt and get the path
-            $receiptPath = $request->file('receipt_path')->store('receipts', 'public');
+                // Store the receipt and get the path
+                $receiptPath = $request->file('receipt_path')->store('receipts', 'public');
             }
 
             // Create the expense record
@@ -72,7 +73,7 @@ class ExpenseController extends Controller
                 'amount' => $validated['amount'],
                 'date' => $validated['date'],
                 'description' => $validated['description'],
-                'receipt_path' => $receiptPath??null,
+                'receipt_path' => $receiptPath ?? null,
                 'category' => $validated['category'],
                 'status' => 'pending',  // default status
             ]);
@@ -109,7 +110,7 @@ class ExpenseController extends Controller
         $users = array_merge($allUsersOption, $users_without_all);
         //sort users to start with 'All'
         $options = array_merge($positions, $departments, $users);
-        $expenses = ['Transport'=>'Transport', 'Airtime'=>'Airtime'];
+        $expenses = ['Transport' => 'Transport', 'Airtime' => 'Airtime'];
         return view('expenses.edit', compact('expense', 'expenses', 'users', 'positions', 'departments'));
     }
 
@@ -122,20 +123,20 @@ class ExpenseController extends Controller
             $validated = $request->validated();
 
             if ($request->hasFile('receipt_path') && $request->file('receipt_path')->isValid()) {
-            // Store the receipt and get the path
-            $receiptPath = $request->file('receipt_path')->store('receipts', 'public');
-            $validated['receipt_path'] = $receiptPath;
+                // Store the receipt and get the path
+                $receiptPath = $request->file('receipt_path')->store('receipts', 'public');
+                $validated['receipt_path'] = $receiptPath;
             }
 
-        $expense->update($validated);
-        return redirect()->route('expenses.show', $expense)->with('success', 'Expense updated!');
-    }catch (\Exception $e) {
-        // Log the error and show an error message to the user
-        Log::error('Error storing expense: ' . $e->getMessage());
+            $expense->update($validated);
+            return redirect()->route('expenses.show', $expense)->with('success', 'Expense updated!');
+        } catch (\Exception $e) {
+            // Log the error and show an error message to the user
+            Log::error('Error storing expense: ' . $e->getMessage());
 
-        return redirect()->back()->with('error', 'There was an error submitting your expense. Please try again later.');
+            return redirect()->back()->with('error', 'There was an error submitting your expense. Please try again later.');
+        }
     }
-}
 
     /**
      * Delete an expense (optional).
