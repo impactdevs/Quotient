@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Mail\MailManager;
+use App\Mail\Transport\InfobipTransport;
+
 use Illuminate\Support\Number;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,9 +31,17 @@ class AppServiceProvider extends ServiceProvider
             if ($user->hasRole('HR')) {
 
                 return true;
-
             }
+        });
 
+        $this->app->make(MailManager::class)->extend('infobip', function () {
+            $config = config('services.infobip');
+            return new InfobipTransport(
+                $config['base_url'],
+                $config['api_key'],
+                $config['email_from'],
+                $config['name'],
+            );
         });
     }
 }

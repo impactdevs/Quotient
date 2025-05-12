@@ -1,4 +1,4 @@
-<div class="row mb-3">
+<div class="mb-3 row">
     <div class="col-md-6">
         <div class="form-group">
             <label for="leave_type_id">Leave Type</label>
@@ -50,22 +50,22 @@
                 value="{{ old('end_date', $leaveRoster->end_date->toDateString()) }}" />
         @endif
     </div>
-    <div class="col-md-12 mt-3">
+    <div class="mt-3 col-md-12">
         <p><strong>Difference in Days(Excluding Weekends and Holidays):</strong> <span id="days-difference">0</span></p>
     </div>
 </div>
 
 <x-forms.hidden name="user_id" id="user_id" value="{{ $user_id }}" />
 
-
 <div class="mb-3 col">
-    <label for="usertokenfield" class="form-label">The following do my work</label>
+    <label for="usertokenfield" class="form-label">Participants</label>
     <input type="text" class="form-control" id="usertokenfield" />
-    <input type="hidden" name="my_work_will_be_done_by[users]" id="user_ids" />
+    <input type="hidden" name="my_work_will_be_done_by[users]" id="user_ids"
+        value="{{ old('category.users', isset($leave) ? (isset($leave->my_work_will_be_done_by['users']) ? $leave->my_work_will_be_done_by['users'] : 'All') : 'All') }}" />
 </div>
 
 {{-- leave adress --}}
-<div class="row mb-3">
+<div class="mb-3 row">
     <div class="col-md-6">
         <x-forms.input name="leave_address" label="Leave Address" type="text" id="leave_address"
             value="{{ old('leave_address', $leave->leave_address ?? '') }}" />
@@ -77,7 +77,7 @@
 </div>
 
 {{-- textarea for other contact details --}}
-<div class="row mb-3">
+<div class="mb-3 row">
     <div class="col-md-12">
         <x-forms.text-area name="other_contact_details" label="Other Contact Details" id="other_contact_details"
             :value="old('other_contact_details', $leave->other_contact_details ?? '')" />
@@ -93,25 +93,75 @@
         $(document).ready(function() {
             const users = @json($users);
             const holidays = @json($holidays);
-            console.log(holidays);
+
             const userSource = Object.entries(users).map(([id, name]) => ({
                 id,
                 name
             }));
-            // Users Tokenfield
+            // Initialize User Tokenfield
             $('#usertokenfield').tokenfield({
-                autocomplete: {
-                    source: userSource.map(user => user.name),
-                    delay: 100
-                },
-                showAutocompleteOnFocus: true
-            }).on('tokenfield:createtoken', function(event) {
-                const token = event.attrs;
-                const userId = userSource.find(user => user.name === token.value)?.id;
-                if (userId) {
-                    const currentIds = $('#user_ids').val().split(',').filter(Boolean);
-                    currentIds.push(userId);
-                    $('#user_ids').val(currentIds.join(','));
+                    autocomplete: {
+                        source: userSource.map(user => user.name),
+                        delay: 100
+                    },
+                    showAutocompleteOnFocus: true
+                })
+                .on('tokenfield:createtoken', function(event) {
+                    const tokenValue = event.attrs.value;
+                    let userId;
+
+                    if (tokenValue === 'All Users') {
+                        userId = 'All';
+                    } else {
+                        const user = userSource.find(u => u.name === tokenValue);
+                        userId = user ? user.id : null;
+                    }
+
+                    if (userId) {
+                        let currentIds = $('#user_ids').val().split(',').filter(Boolean);
+
+                        if (userId === 'All') {
+                            currentIds = ['All'];
+                        } else {
+                            currentIds = currentIds.filter(id => id !== 'All');
+                            if (!currentIds.includes(userId)) {
+                                currentIds.push(userId);
+                            }
+                        }
+
+                        $('#user_ids').val(currentIds.join(','));
+                    } else {
+                        event.preventDefault();
+                    }
+                })
+                .on('tokenfield:removedtoken', function(e) {
+                    const tokenValue = e.attrs.value;
+                    let userId;
+
+                    if (tokenValue === 'All Users') {
+                        userId = 'All';
+                    } else {
+                        const user = userSource.find(u => u.name === tokenValue);
+                        userId = user ? user.id : null;
+                    }
+
+                    if (userId) {
+                        let currentIds = $('#user_ids').val().split(',').filter(Boolean);
+                        currentIds = currentIds.filter(id => id !== userId);
+                        $('#user_ids').val(currentIds.join(','));
+                    }
+                });
+
+            // Populate initial tokens for Users
+            const initialUserIds = $('#user_ids').val().split(',').filter(Boolean);
+            initialUserIds.forEach(id => {
+                if (id === 'All') {
+                    $('#usertokenfield').tokenfield('createToken', 'All Users');
+                } else {
+                    const user = userSource.find(u => u.id === id);
+                    if (user) {
+                        $('#usertokenfield').tokenfield('createToken', user.name);
+                    }
                 }
             });
 
