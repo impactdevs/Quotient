@@ -72,7 +72,7 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Status</th>
+                                {{-- <th scope="col">Status</th> --}}
                                 <th scope="col">Spent On</th>
                                 <th scope="col">Receipt</th>
                                 <th scope="col" class="text-end pe-4">Actions</th>
@@ -102,24 +102,11 @@
                                     </td>
                                     <td class="fw-medium">{{ Number::currency($expense->amount) }}</td>
                                     <td>{{ $expense->date->format('M d, Y') }}</td>
-                                    <td>
-                                        @php
-                                            $statusColors = [
-                                                'pending' => 'warning',
-                                                'approved' => 'success',
-                                                'rejected' => 'danger',
-                                            ];
-                                        @endphp
-                                        <span
-                                            class="badge bg-{{ $statusColors[strtolower($expense->status)] ?? 'secondary' }}">
-                                            {{ $expense->status }}
-                                        </span>
-                                    </td>
+                               
                                     <td>
                                         <div class="flex-wrap gap-2 d-flex">
                                             <!-- Your existing badge code with improved styling -->
                                             @php
-                                                // Assume training_category contains comma-separated IDs for each category
                                                 $userIds = explode(',', $expense->category['users'] ?? '');
                                                 $departmentIds = explode(',', $expense->category['departments'] ?? '');
                                                 $positionIds = explode(',', $expense->category['positions'] ?? '');
