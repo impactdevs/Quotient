@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">
+                    <div class="text-center card-header">
                         <h3>{{ $companyName ?? 'Your Company Name' }}</h3>
                         <p>{{ $companyAddress ?? 'Company Address' }}</p>
                         <h4>Payroll Payslip</h4>
@@ -25,18 +25,18 @@
                     </div>
                     <div class="card-body">
                         <!-- Payment Information -->
-                        <div class="row mb-4">
+                        <div class="mb-4 row">
                             <div class="col-md-6">
                                 <p><strong>Payment Type:</strong> Salary</p>
                                 <p><strong>Payment Date:</strong> {{ now()->format('d M Y') }}</p>
                             </div>
-                            <div class="col-md-6 text-right">
+                            <div class="text-right col-md-6">
                                 <p><strong>Employee ID:</strong> {{ $payroll->employee_id }}</p>
                                 <p><strong>Employee Name:</strong>
                                     {{ $payroll->employee->first_name . ' ' . $payroll->employee->last_name }}</p>
-                                <p><strong>Department:</strong> {{ $payroll->employee->department->department_name }}
+                                <p><strong>Department:</strong> {{ optional($payroll->employee->department)->department_name }}
                                 </p>
-                                <p><strong>Position:</strong> {{ $payroll->employee->position->position_name }}</p>
+                                <p><strong>Position:</strong> {{ optional($payroll->employee->position)->position_name }}</p>
                             </div>
                         </div>
 
@@ -86,12 +86,12 @@
                         </div>
 
                         <!-- Footer with Company Info -->
-                        <div class="row mt-4">
+                        <div class="mt-4 row">
                             <div class="col-6">
                                 <p><strong>Company Contact:</strong>
                                     {{ $companyContact ?? 'Company Contact Information' }}</p>
                             </div>
-                            <div class="col-6 text-right">
+                            <div class="text-right col-6">
                                 <p><strong>Signature:</strong> ___________________</p>
                             </div>
                         </div>

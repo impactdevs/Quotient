@@ -31,14 +31,14 @@ class PayrollController extends Controller
                 });
             })
             ->orderBy('created_at', 'desc');
-    
+
         return view('pay-roll.index', [
             'payrollRecords' => $query->paginate(10),
             'employees' => Employee::orderBy('first_name')->get(),
             'departments' => Department::orderBy('department_name')->get()  // Fetch departments to display in the filter
         ]);
     }
-    
+
 
 
     public function downloadPayslip(PayrollRecord $payroll)
