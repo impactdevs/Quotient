@@ -1,0 +1,1 @@
+# The Dashboard shows analytics for an entire application.
