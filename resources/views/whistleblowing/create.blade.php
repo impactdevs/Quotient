@@ -389,7 +389,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="{{ asset('assets/img/logo.png') }}" alt="company logo"
+            <img src="{{ asset('assets/img/quotient.png') }}" alt="quotient whistleblowing form"
                 class="d-block mx-auto object-fit-contain border rounded img-fluid"
                 style="max-width: 100%; height: auto;">
             <h1><i class="fas fa-shield-alt"></i> Whistleblower Reporting Form</h1>
