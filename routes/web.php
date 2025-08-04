@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
-    return redirect('dashboard');
+    return redirect()->route('landing');
 });
 
 Route::get('/landing', [HomeController::class, 'landing_page'])->name('landing');
