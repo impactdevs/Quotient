@@ -15,6 +15,7 @@ use Carbon\Carbon;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class HomeController extends Controller
 {
@@ -289,7 +290,7 @@ class HomeController extends Controller
 
         return view('dashboard.index', compact('number_of_employees', 'ongoingAppraisals', 'submittedAppraisalsBystaff', 'pendingAppraisals', 'submittedAppraisalsByHR', 'submittedAppraisalsByHoD', 'notifications', 'contracts', 'runningContracts', 'expiredContracts', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings', 'entries', 'appraisals', 'leaveApprovalData', 'totalLeaves', 'totalDays', 'todayBirthdays', 'isAdmin'));
     }
-    
+
     public function agree()
     {
         // Store the agreement in the user's profile or session
@@ -303,5 +304,57 @@ class HomeController extends Controller
     public function landing_page()
     {
         return view('landing_page.landing_page');
+    }
+
+     //service-details for the landing pagge
+    public function appraisals()
+    {
+        return view('landing_page.service-details-appraisals');
+    }
+    public function training_travel()
+    {
+        return view('landing_page.service-details-training-travel');
+    }
+    public function leave_schedule()
+    {
+        return view('landing_page.service-details-leave-schedule');
+    }
+    public function applications()
+    {
+        return view('landing_page.service-details-applications');
+    }
+
+    //handle contact emails
+    public function send(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'subject' => $request->input('subject'),
+            'message' => $request->input('message'),
+        ];
+
+        try {
+            Mail::raw($data['message'] . '' . 'Message from : ' . $data['email'], function ($mail) use ($request) {
+                // to be sent to this email
+                $mail->to('dev.david1300@gmail.com')
+                    ->subject($request->input('subject'));
+
+            });
+            return redirect()->back()->with('success', 'Your message has been sent successfully!');
+        } catch (\Exception $e) {
+            // Flash error message if email fails
+            return redirect()->back()->with('error', 'Failed to send your message. Please try again.');
+        }
+
+
     }
 }

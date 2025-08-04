@@ -53,6 +53,11 @@ Route::get('/landing', [HomeController::class, 'landing_page'])->name('landing')
 
 
 Route::get('/dashboard', [HomeController::class, 'index'])->middleware(['auth', 'verified', 'check.employee.record'])->name('dashboard');
+Route::post('/send-email', [HomeController::class, 'send'])->name('contact.send');
+Route::get('/service-details-appraisals', [HomeController::class, 'appraisals'])->name('service-details-appraisals');
+Route::get('/service-details-training', [HomeController::class, 'training_travel'])->name('trainings-travel');
+Route::get('/service-details-leave-schedule', [HomeController::class, 'leave_schedule'])->name('leave-scheduling');
+Route::get('/service-details-applications', [HomeController::class, 'applications'])->name('application-management');
 Route::post('/agree', [HomeController::class, 'agree'])->middleware(['auth', 'verified'])->name('agree');
 Route::get('/upload-employee', [UploadEmployees::class, 'process_csv_for_arrears']);
 Route::get('/employees/{employee}/generate-pdf', [EmployeeController::class, 'generatePDF'])
