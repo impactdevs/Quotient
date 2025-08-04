@@ -289,7 +289,7 @@ class HomeController extends Controller
 
         return view('dashboard.index', compact('number_of_employees', 'ongoingAppraisals', 'submittedAppraisalsBystaff', 'pendingAppraisals', 'submittedAppraisalsByHR', 'submittedAppraisalsByHoD', 'notifications', 'contracts', 'runningContracts', 'expiredContracts', 'attendances', 'available_leave', 'hours', 'todayCounts', 'yesterdayCounts', 'lateCounts', 'chartDataJson', 'leaveTypesJson', 'chartEmployeeDataJson', 'events', 'trainings', 'entries', 'appraisals', 'leaveApprovalData', 'totalLeaves', 'totalDays', 'todayBirthdays', 'isAdmin'));
     }
-
+    
     public function agree()
     {
         // Store the agreement in the user's profile or session
