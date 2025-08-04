@@ -218,6 +218,18 @@
                     $title = 'Editing Off Desk Record';
                 }
 
+                if (request()->routeIs('pay-roll.index')) {
+                    $title = 'Payroll Administration';
+                }
+
+                if (
+                    request()->routeIs('expenses.index') ||
+                    request()->routeIs('expenses.create') ||
+                    request()->routeIs('expenses.edit')
+                ) {
+                    $title = 'Expenses';
+                }
+
             @endphp
 
             {{ $title }}
