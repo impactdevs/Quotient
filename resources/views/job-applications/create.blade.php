@@ -32,7 +32,7 @@
 
 <body class="bg-light">
     <div class="container py-5">
-        <img src="{{ asset('assets/img/logo.png') }}" alt="company logo"
+        <img src="{{ asset('assets/img/quotient.png') }}" alt="company logo"
             class="d-block mx-auto object-fit-contain border rounded img-fluid" style="max-width: 100%; height: auto;">
 
         <h2 class="text-center mb-4">QUOTIENT JOB APPLICATION</h2>
