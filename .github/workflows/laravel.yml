@@ -1,0 +1,65 @@
+name: DEPLOYMENT OF QUOTIENT HRMSTO DIGITAL OCEAN
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Upload files to DigitalOcean
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          source: "."
+          target: "/var/www/quotient.impact-outsourcing.com"
+
+      - name: Run migrations, optimize, and restart Supervisor
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            cd /var/www/quotient.impact-outsourcing.com
+            php artisan migrate --force
+            php artisan optimize:clear
+            php artisan optimize
+            php artisan storage:link
+            sudo supervisorctl reread
+            sudo supervisorctl update
+            sudo supervisorctl restart all
+            php artisan sitemap:generate
+
+      - name: Set proper permissions for storage and cache
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            sudo chgrp -R www-data /var/www/quotient.impact-outsourcing.com/storage /var/www/quotient.impact-outsourcing.com/bootstrap/cache
+            sudo chmod -R ug+rwx /var/www/quotient.impact-outsourcing.com/storage /var/www/quotient.impact-outsourcing.com/bootstrap/cache
+
+      # set right permissions for images directory in public, make sure its readable and writable
+      - name: Set proper permissions for images directory
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: ${{ secrets.DO_USERNAME }}
+          key: ${{ secrets.DO_SSH_KEY }}
+          script: |
+            sudo chgrp -R www-data /var/www/quotient.impact-outsourcing.com/public/storage
+            sudo chmod -R ug+rwx /var/www/quotient.impact-outsourcing.com/public/storage

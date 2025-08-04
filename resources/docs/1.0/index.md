@@ -1,0 +1,13 @@
+- ## QUOTIENT HRMIS User Manual
+    - [Overview](/{{route}}/{{version}}/overview)
+    - [Authentication](/{{route}}/{{version}}/authentication)
+    - [System Configurations](/{{route}}/{{version}}/setting)
+    - [Employee Management](/{{route}}/{{version}}/employee)
+    - [Leave Roster Scheduling](/{{route}}/{{version}}/leave-roster)
+    - [Leave Management](/{{route}}/{{version}}/leave)
+    - [Appraisals Management](/{{route}}/{{version}}/appraisal)
+    - [Events Management](/{{route}}/{{version}}/event)
+    - [Training/Travels Management](/{{route}}/{{version}}/training-travels)
+    - [Recruitment Management](/{{route}}/{{version}}/recruitment)
+    - [Job Applications Management](/{{route}}/{{version}}/job-applications)
+    - [Salary Advance Management](/{{route}}/{{version}}/salary-advances)
