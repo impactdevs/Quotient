@@ -143,7 +143,7 @@
                     <a class="nav-link text-white d-flex align-items-center gap-2 fs-5 fw-bold @if (request()->routeIs('expenses.index')) bg-secondary @endif"
                         href="{{ route('expenses.index') }}">
                         <i class="bi bi-currency-dollar"></i>
-                        {{ auth()->user()->isAdminOrSecretary() ? 'Expenses' : 'My Expenses' }}
+                        {{ auth()->user()->isAdminOrSecretary ? 'Expenses' : 'My Expenses' }}
                     </a>
 
                 <li class="nav-item">
